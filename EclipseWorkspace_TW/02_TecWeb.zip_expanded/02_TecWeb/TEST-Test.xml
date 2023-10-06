@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="LAPTOP-GHIGO" name="Test" skipped="0" tests="1" time="0.0" timestamp="2023-10-05T14:34:54">
+  <properties>
+    <property name="ant.library.dir" value="C:\Users\GHIGO\.p2\pool\plugins\org.apache.ant_1.10.12.v20211102-1452\lib" />
+    <property name="java.specification.version" value="17" />
+    <property name="ant.project.name" value="02_TecWeb" />
+    <property name="deploy.path" value="C:\JavaHome\TomCat\apache-tomcat-9.0.80\webapps" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="java.class.path" value="D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\lib\00_TecWeb_solved.jar;D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\lib\jsp-api.jar;D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\lib\junit4_4.3.1.jar;D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\lib\servlet-api.jar;D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\lib\soap.jar;D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\build\classes;D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\build\tests;C:\Users\GHIGO\.p2\pool\plugins\org.apache.ant_1.10.12.v20211102-1452\lib\ant-launcher.jar;C:\Users\GHIGO\.p2\pool\plugins\org.apache.ant_1.10.12.v20211102-1452\lib\ant.jar;C:\Users\GHIGO\.p2\pool\plugins\org.apache.ant_1.10.12.v20211102-1452\lib\ant-junit.jar;C:\Users\GHIGO\.p2\pool\plugins\org.apache.ant_1.10.12.v20211102-1452\lib\ant-junit4.jar" />
+    <property name="java.vm.vendor" value="Eclipse Adoptium" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="user.variant" value="" />
+    <property name="java.vendor.url" value="https://adoptium.net/" />
+    <property name="build.exploded.dir" value="build/exploded" />
+    <property name="java.vm.specification.version" value="17" />
+    <property name="os.name" value="Windows 11" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="user.country" value="IT" />
+    <property name="sun.boot.library.path" value="C:\Users\GHIGO\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Test skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\TEST-Test.xml crashfile=D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\junitvmwatcher1232982472837717788.properties propsfile=D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\junit10077892121032724607.properties" />
+    <property name="jdk.debug" value="release" />
+    <property name="test.dir" value="test" />
+    <property name="tmp.dir" value="tmp" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="user.home" value="C:\Users\GHIGO" />
+    <property name="user.language" value="it" />
+    <property name="eclipse.pdebuild.templates" value="C:\JavaHome\Eclipse\jee-2023-09\eclipse\..\..\..\..\Users\GHIGO\.p2\pool\plugins\org.eclipse.pde.build_3.12.100.v20230825-1354\templates" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="web.dir" value="web" />
+    <property name="java.version.date" value="2023-08-24" />
+    <property name="java.home" value="C:\Users\GHIGO\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre" />
+    <property name="file.separator" value="\" />
+    <property name="basedir" value="D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="ant.file.type.02_TecWeb" value="file" />
+    <property name="eclipse.pdebuild.home" value="C:\JavaHome\Eclipse\jee-2023-09\eclipse\..\..\..\..\Users\GHIGO\.p2\pool\plugins\org.eclipse.pde.build_3.12.100.v20230825-1354\." />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="ant.java.version" value="17" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="build.archives.dir" value="build/archives" />
+    <property name="server.home" value="C:\JavaHome\TomCat\apache-tomcat-9.0.80" />
+    <property name="user.script" value="" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="jdk.home" value="C:\JavaHome\jdk-21" />
+    <property name="java.runtime.version" value="17.0.8.1+1" />
+    <property name="java.security.manager" value="allow" />
+    <property name="user.name" value="GHIGO" />
+    <property name="ant.file" value="D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\ant\build.xml" />
+    <property name="build.classes.dir" value="build/classes" />
+    <property name="stdout.encoding" value="UTF-8" />
+    <property name="ant.file.02_TecWeb" value="D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\ant\build.xml" />
+    <property name="path.separator" value=";" />
+    <property name="os.version" value="10.0" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="ant.project.invoked-targets" value="06.test" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="java.vendor.version" value="Temurin-17.0.8.1+1" />
+    <property name="build.dir" value="build" />
+    <property name="ant.core.lib" value="C:\Users\GHIGO\.p2\pool\plugins\org.apache.ant_1.10.12.v20211102-1452\lib\ant.jar" />
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues" />
+    <property name="java.io.tmpdir" value="C:\Users\GHIGO\AppData\Local\Temp\" />
+    <property name="java.version" value="17.0.8.1" />
+    <property name="user.dir" value="D:\Documents\Università\Workspaces\TecWeb\02_TecWeb.zip_expanded\02_TecWeb\tmp" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="C:\Users\GHIGO\.p2\pool\plugins\org.apache.ant_1.10.12.v20211102-1452" />
+    <property name="lib.dir" value="lib" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="native.encoding" value="Cp1252" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.12 compiled on October 13 2021" />
+    <property name="java.library.path" value="C:\Users\GHIGO\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/GHIGO/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047/jre/bin/server;C:/Users/GHIGO/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.8.v20230831-1047/jre/bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\JavaHome\jdk-21\bin;C:\Program Files\PowerShell\7\;C:\Users\GHIGO\AppData\Local\Microsoft\WindowsApps;C:\Users\GHIGO\AppData\Local\Microsoft\WinGet\Links;C:\Users\GHIGO\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\GHIGO\AppData\Local\GitHubDesktop\bin;D:\Desktop;;." />
+    <property name="eclipse.pdebuild.scripts" value="C:\JavaHome\Eclipse\jee-2023-09\eclipse\..\..\..\..\Users\GHIGO\.p2\pool\plugins\org.eclipse.pde.build_3.12.100.v20230825-1354\scripts" />
+    <property name="suite" value="Test" />
+    <property name="java.vendor" value="Eclipse Adoptium" />
+    <property name="stderr.encoding" value="UTF-8" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="java.vm.version" value="17.0.8.1+1" />
+    <property name="build.tests.dir" value="build/tests" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="java.class.version" value="61.0" />
+    <property name="src.dir" value="src" />
+    <property name="ant.project.default-target" value="02.print.properties" />
+  </properties>
+  <error message="Test" type="java.lang.ClassNotFoundException">java.lang.ClassNotFoundException: Test
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+</error>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
