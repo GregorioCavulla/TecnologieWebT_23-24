@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AUTENTIFICAZIONE SERVLET</title>
+<link type="text/css" href="styles/default.css" rel="stylesheet"></link>
+<script type="text/javascript" src="../scripts/validator.js"></script>
+</head>
+<body style="font-family: monospace">
+	<h1 style="color: #8B0000; font-size: 2em; text-align: center;">LOGIN
+		OR REGISTER</h1>
+	<form action="../Auth" method="post" name="myForm"
+		onsubmit="nonBlank(document.myForm.username) && nonBlank(document.myForm.password)">
+		<fieldset style="padding: 20px">
+			<div align="left">
+				<h2 style="color: orange;">Effettua il login, altrimenti
+					registrati!</h2>
+				<input type="radio" value="Registrazione" name="log"
+					onClick="registra()">Registrazione<br> <input
+					type="radio" value="Login" name="log" onClick="login()">Login<br>
+				<br> <label> Username<br> <input type="text"
+					name="username" value=""><br> Password<br> <input
+					type="password" name="password"><br> <br>
+				</label>
+				<div id="reg" style="display: none">
+					<input type="submit" value="REGISTRATI"
+						style="background-color: orange; color: white;">
+				</div>
+				<div id="log" style="display: none">
+					<pre></pre>
+					<input type="submit" value="LOGIN"
+						style="background-color: orange; color: white;">
+				</div>
+
+			</div>
+		</fieldset>
+	</form>
+
+</body>
+</html>
