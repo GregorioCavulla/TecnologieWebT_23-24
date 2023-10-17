@@ -37,7 +37,7 @@
 	<!-- Specifica i file di benvenuto predefiniti -->
 	<welcome-file-list>
 		<!-- Elenco dei file di benvenuto predefiniti -->
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<!-- Definizione delle pagine di errore personalizzate -->

@@ -18,3 +18,14 @@
 	background-color: #197278;
     text-decoration: underline;
 }
+
+#fullscreen-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 50%; /* Rende il pulsante rotondo */
+  font-size: 20px; /* Dimensione dell'icona */
+}
