@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 
+<!-- Definizione del progetto -->
 <project name="TemplateNew_Ghigo" basedir=".." default="02.print.properties">
 
-	<!-- ================ -->
-	<!-- Properties setup -->
-	<!-- ================ -->
-
+	<!-- Sezione per la configurazione delle proprietà -->
+	<!-- Questo target imposta le proprietà del progetto -->
 	<target 
 		name="00.init.properties" 
 		description="Sets up properties"
 	>
+		<!-- Messaggio di avvertimento riguardo alle proprietà -->
 		<echo message="Ricordarsi di impostare correttamente le proprieta' nel file ant/environment.properties !!!"/>
-		<!-- Environment properties -->
+		<!-- Proprietà dell'ambiente -->
 		<property file="ant/Home.environment.properties"/>
-		<!-- Project properties -->
+		<!-- Proprietà del progetto -->
 		<property file="ant/project.properties"/>
-		<!-- Project structure -->
+		<!-- Struttura del progetto -->
 	    <property name="src.dir" value="src"/>
 	    <property name="test.dir" value="test"/>
 		<property name="build.dir" value="build"/>
@@ -29,27 +29,25 @@
 	    <property name="hsqldb.dir" value="db"/>
 	</target>
 
+	<!-- Impostazione del classpath -->
 	<target 
 		name="01.set.classpath" depends="00.init.properties" 
 		description="Sets up classpath properties for other tasks"
 	>
 	    <path id="ant-classpath">
-	    	<!-- Project-specific libraries -->
+	    	<!-- Librerie specifiche del progetto -->
 	        <fileset dir="${lib.dir}">
 	            <include name="*.jar"/>
 	        </fileset>
 	        <fileset dir="${web.dir}">
 	            <include name="WEB-INF/lib/*.jar"/>
 	        </fileset>
-	    	<!-- Project classes -->
+	    	<!-- Classi del progetto -->
 	        <pathelement path="${build.classes.dir}"/>
 	    </path>
 	</target>
 
-	<!-- ================= -->
-	<!-- Informative tasks -->
-	<!-- ================= -->
-
+	<!-- Stampa delle proprietà a scopo informativo -->
 	<target 
 		name="02.print.properties" depends="00.init.properties"
 		description="Prints properties on screen for verification purpose" 
@@ -57,6 +55,7 @@
         <echo message="-----------------------------------"/>
         <echo message="Properties are:"/>
         <echo message="-----------------------------------"/>
+		<!-- Stampa delle proprietà del progetto -->
 		<echo message="{ant.project.name} is '${ant.project.name}'"/>
 		<echo message="{basedir} is '${basedir}'"/>
 		<echo message="{src.dir} is '${src.dir}'"/>
@@ -71,16 +70,11 @@
         <echo message="..................................."/>
 		<echo message="{java.home} is '${java.home}'"/>
         <echo message="..................................."/>
-		<!--
-		<echo message="{} is '${}'"/>
-		-->
-        <echo message=" "/>
+		<!-- Altre proprietà possono essere aggiunte qui -->
+		<echo message=" "/>
 	</target>
 
-	<!-- ============= -->
-	<!-- Project tasks -->
-	<!-- ============= -->
-
+	<!-- Target per la pulizia -->
 	<target 
 		name="03.clean" depends="00.init.properties"
 		description="Creates project structure, if needed"
@@ -89,6 +83,7 @@
         <delete dir="${tmp.dir}" includes="**"/>
 	</target>
 
+	<!-- Target per la preparazione della struttura del progetto -->
 	<target 
 		name="04.prepare" depends="03.clean"
 		description="Creates project structure, if needed"
@@ -104,6 +99,7 @@
         <mkdir dir="${web.dir}"/>
 	</target>
     
+	<!-- Target per la compilazione delle classi del progetto -->
 	<target 
     	name="05.build" depends="01.set.classpath, 04.prepare"
 		description="Compile main source tree java files"
@@ -116,6 +112,7 @@
         </javac>
 	</target>
 
+	<!-- Target per la compilazione dei test -->
 	<target 
     	name="05.build.tests" depends="05.build"
 		description="Compile test java files"
@@ -128,6 +125,7 @@
         </javac>
     </target>
 
+	<!-- Target per l'esecuzione dei test -->
 	<target name="06.test" depends="05.build">
 		<input
 		    message="JUnit test suite (canonical class name):"
@@ -142,6 +140,7 @@
 		</junit>	
 	</target>
     
+    <!-- Target per il confezionamento dell'applicazione web in un file WAR -->
     <target name="07.package" depends="05.build" >
         <war destfile="${build.archives.dir}/${ant.project.name}.war" webxml="${web.dir}/WEB-INF/web.xml">
             <fileset dir="${web.dir}">
@@ -153,11 +152,13 @@
 		<unwar src="${build.archives.dir}/${ant.project.name}.war" dest="${build.exploded.dir}/${ant.project.name}"/>
     </target>
 
+	<!-- Target per la rimozione del deploy precedente -->
 	<target name="08.undeploy" depends="00.init.properties" >
 		<delete file="${deploy.path}/${ant.project.name}.war"/>
 		<delete dir="${deploy.path}/${ant.project.name}"/>
     </target>
 
+	<!-- Target per il deploy del file WAR -->
 	<target name="09a.deploy.war" depends="08.undeploy, 07.package" >
     	<copy todir="${deploy.path}" preservelastmodified="true">
             <fileset dir="${build.archives.dir}">
@@ -166,10 +167,12 @@
         </copy>
     </target>
 
+	<!-- Target per il deploy del contenuto del file WAR -->
 	<target name="09b.deploy.dir" depends="08.undeploy, 07.package" >
 		<unwar src="${build.archives.dir}/${ant.project.name}.war" dest="${deploy.path}/${ant.project.name}"/>
     </target>
 
+	<!-- Target per l'aggiornamento delle pagine nel percorso di deploy -->
 	<target name="10.update.pages" depends="00.init.properties">
 		<copy overwrite="false" todir="${deploy.path}/${ant.project.name}">
             <fileset dir="${web.dir}">
@@ -178,10 +181,7 @@
 		</copy>
 	</target>
 
-	<!-- ========== -->
-	<!-- More tasks -->
-	<!-- ========== -->
-		
+	<!-- Target per avviare un server HSQLDB -->
 	<target name="97.database.start" depends="00.init.properties, 01.set.classpath">
         <mkdir dir="${hsqldb.dir}"/>
 		<java classname="org.hsqldb.Server" fork="yes">
@@ -196,12 +196,14 @@
 		</java>
 	</target>
 
+	<!-- Target per avviare il frontend di gestione del database HSQLDB -->
 	<target name="98.database.frontend" depends="00.init.properties, 01.set.classpath">
 		<java classname="org.hsqldb.util.DatabaseManager" fork="yes">
 			<classpath refid="ant-classpath" />
 		</java>
 	</target>
 
+	<!-- Target per avviare un tunnel TCP -->
 	<target name="99.run.tcptunnel" depends="00.init.properties">
 		<java classname="org.apache.soap.util.net.TcpTunnelGui" fork="true">
 			<classpath refid="ant-classpath" />

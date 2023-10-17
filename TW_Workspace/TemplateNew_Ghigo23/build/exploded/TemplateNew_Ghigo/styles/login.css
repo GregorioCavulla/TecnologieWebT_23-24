@@ -37,15 +37,24 @@ body {
     border-radius: 3px;
 }
 
-.login-form button {
+/* Stile per il pulsante "Accedi" */
+button[type="submit"] {
     background-color: #007bff;
     color: #fff;
     padding: 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    margin: 0 auto; /* Aggiunto per centrare il pulsante */
+    display: block; /* Aggiunto per centrare il pulsante */
 }
 
-.login-form button:hover {
+button[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+        .login-form button {
+            display: inline-block;
+            width: 150px; /* Imposta la larghezza desiderata */
+            margin-right: 10px; /* Aggiungi spazio tra i pulsanti, se necessario */
+        }

@@ -1,46 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
     
+    <!-- Nome visualizzato dell'applicazione -->
     <display-name>Template_TW_Ghigo</display-name>
+    
+    <!-- Descrizione breve dell'applicazione -->
     <description>
     	empty template to use as starting point for your tries
     </description>
     
-    <!-- Context attributes to be used throughout the application -->
+    <!-- Definizione dei parametri del contesto dell'applicazione -->
 	<context-param>
+		<!-- Nome del parametro del contesto -->
 		<param-name>dao</param-name>
+		<!-- Valore del parametro del contesto (identificativo dell'implementazione) -->
 		<param-value>IDENTIFICATIVO_DELL_IMPLEMENTAZIONE</param-value>
 	</context-param>
 	
-	<!-- Define servlets that are included in the application -->
+	<!-- Definizione dei servlet e dei relativi mapping URL -->
 	<servlet>
-	        <servlet-name>ServletAuth</servlet-name>
-	        <servlet-class>Servlet.ServletAuth</servlet-class>
+	    <!-- Nome del servlet -->
+	    <servlet-name>ServletAuth</servlet-name>
+	    <!-- Classe del servlet utilizzata per gestire le richieste -->
+	    <servlet-class>Servlet.ServletAuth</servlet-class>
 	</servlet>
 	<servlet-mapping>
-        <servlet-name>ServletAuth</servlet-name>
-        <url-pattern>/servletAuth</url-pattern>
+	    <!-- Nome del servlet al quale il mapping URL si riferisce -->
+	    <servlet-name>ServletAuth</servlet-name>
+	    <!-- Modello URL al quale il servlet risponderà -->
+	    <url-pattern>/servletAuth</url-pattern>
 	</servlet-mapping>
 	
-	
-	
-	<!-- default pages in case of access or errors -->
+	<!-- Specifica i file di benvenuto predefiniti -->
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<!-- Elenco dei file di benvenuto predefiniti -->
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	
+	<!-- Definizione delle pagine di errore personalizzate -->
 	<error-page>
+		<!-- Specifica il codice di errore HTTP (404 - pagina non trovata) -->
 		<error-code>404</error-code>
+		<!-- Pagina da visualizzare quando si verifica un errore 404 -->
 		<location>/errors/notfound.html</location>
 	</error-page>
 
 	<error-page>
+		<!-- Specifica il tipo di eccezione Java (javax.servlet.ServletException) -->
 		<exception-type>javax.servlet.ServletException</exception-type>
+		<!-- Pagina da visualizzare quando si verifica un'eccezione di tipo ServletException -->
 		<location>/errors/failure.jsp</location>
 	</error-page>
-	
 </web-app>

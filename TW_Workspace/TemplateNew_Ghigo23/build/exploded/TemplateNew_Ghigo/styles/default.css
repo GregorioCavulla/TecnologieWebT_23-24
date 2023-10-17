@@ -40,7 +40,7 @@ ul {
 
 /* Stile per link */
 a {
-    color: #007bff;
+    color: #197278;
     text-decoration: none;
 }
 
@@ -52,7 +52,7 @@ a:hover {
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #197278;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -60,7 +60,7 @@ a:hover {
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #283D3B;
 }
 
 /* Stile per i moduli */

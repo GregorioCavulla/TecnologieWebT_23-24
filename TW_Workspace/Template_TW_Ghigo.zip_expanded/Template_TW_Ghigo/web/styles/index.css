@@ -1,0 +1,160 @@
+/*-------------------------------------------------------*/
+/*BODY*/
+body{
+    display: flex;
+    justify-content: space-around;
+}
+/*-------------------------------------------------------*/
+#application{
+    display: flex;
+    width:1024px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/*-------------------------------------------------------*/
+.divIO{
+    width: fit-content;
+    border-radius: 10px;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+    .divIO .inputDiv{
+        min-width: 300px;
+        min-height:60px;
+        background-color: lightblue;
+        border-radius: 10px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .divIO .inputDiv:hover{
+        background-color: skyblue;
+    }
+
+        .divIO .inputDiv > *{
+            margin:5px;
+        }
+        .divIO .inputDiv .formTitle{
+            font-size: 1.5em;
+        }
+        .divIO .inputDiv .formDescription{
+            font-size: 1.2;
+        }     
+        .divIO .inputDiv .messageDiv{
+            display: none;
+            flex-direction: row;
+            justify-items: start;
+            align-items: center;
+        }
+
+            .divIO .inputDiv .messageDiv .messageImage{
+                width:20px;
+                height: 20px;
+                margin:3px;
+            }
+
+            .divIO .inputDiv .messageDiv .messageLabel{
+                font-size: 0.5em;
+            }
+
+    .divIO .jsonDiv{
+        min-width: 300px;
+        height:auto;
+        background-color: lightblue;
+        border-radius: 10px;
+        margin:10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .divIO .jsonDiv:hover{
+        background-color: skyblue;
+    }
+
+    .divIO .jsonDiv .inputLabel{
+        margin:5px;
+    }
+        .divIO .jsonDiv:hover .inputDiv{
+            background-color: skyblue;
+        }
+
+        .divIO .jsonDiv .jsonInputDiv{
+            min-width: 300px;
+            margin:10px;
+        }
+
+        .divIO .jsonDiv > *{
+            margin:5px;
+        }
+
+        .divIO .jsonDiv .inputDiv{
+            min-width: 280px;
+        }
+        .divIO .jsonDiv .formTitle{
+            font-size: 1.5em;
+        }
+        .divIO .jsonDiv .messageDiv{
+            display: none;
+            flex-direction: row;
+            justify-items: start;
+            align-items: center;
+        }
+
+            .divIO .jsonDiv .messageDiv .messageImage{
+                width:20px;
+                height: 20px;
+                margin:3px;
+            }
+
+            .divIO .jsonDiv  .messageDiv .messageLabel{
+                font-size: 0.5em;
+            }
+/*-------------------------------------------------------*/
+#notReady{
+    width: fit-content;
+    height:100px;
+    border-radius: 10px;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#notReady > .image {
+    width: 50px;
+    height: 50px;
+    margin:5px;
+}
+
+#notReady > .text{
+    margin:5px;
+}
+
+
+/*-------------------------------------------------------*/
+th, td {
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+th
+{
+    background-color:cornflowerblue;
+}
+
+tr{
+    background-color:beige;
+}

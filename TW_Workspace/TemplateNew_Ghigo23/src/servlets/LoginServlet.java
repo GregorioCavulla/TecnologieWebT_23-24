@@ -7,24 +7,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.ServerData;
 import beans.Utente;
 
-/**
- * Servlet per la gestione del login degli utenti.
- */
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 7859707350222212965L;
 
-    /**
-     * Inizializza la servlet e popola la lista di utenti durante l'inizializzazione
-     * dell'applicazione.
-     *
-     * @throws ServletException se si verifica un errore durante l'inizializzazione.
-     */
     @Override
     public void init() throws ServletException {
         super.init();
@@ -35,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         // Crea e aggiungi l'utente "admin"
         Utente admin = new Utente();
         admin.setUsername("admin");
-        admin.setPassword("adminpw");
+        admin.setPassword("admin");
         serverData.getUtenti().add(admin);
 
         // Crea e aggiungi l'utente "cecco"
@@ -51,32 +43,43 @@ public class LoginServlet extends HttpServlet {
         serverData.getUtenti().add(andre);
     }
 
-    /**
-     * Gestisce le richieste POST per il login degli utenti.
-     *
-     * @param request  la richiesta HTTP.
-     * @param response la risposta HTTP.
-     * @throws ServletException se si verifica un errore durante la gestione della richiesta.
-     * @throws IOException      se si verifica un errore di I/O durante la gestione della richiesta.
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Ottieni i parametri della richiesta
         String username = request.getParameter("username");
+        System.out.println("utente: "+username);
         String password = request.getParameter("password");
+        String action = request.getParameter("action");
+		HttpSession session = request.getSession();
 
         // Ottieni l'istanza di ServerData
         ServerData serverData = ServerData.getServerData();
-
-        // Verifica le credenziali
-        Utente utente = serverData.getUtente(username);
-
-        if (utente != null && utente.getPassword().equals(password)) {
-            // Credenziali valide, reindirizza alla pagina di successo
-            response.sendRedirect("login_success.html");
-        } else {
-            // Credenziali non valide, reindirizza alla pagina di errore
-            response.sendRedirect("login_error.html");
+        
+        // Gestisci la registrazione
+        if ("Registrazione".equals(action)) {
+        	if(!serverData.creaUtente(username, password)) {
+        		String error = "utente già registrato";
+        		session.setAttribute("error", error);
+        		request.getRequestDispatcher("./pages/error.jsp").forward(request, response);
+        	}else{
+        		Utente utente = serverData.getUtente(username);
+        		request.getSession().setAttribute("utente", utente);
+                response.sendRedirect("./pages/welcome.jsp");
+        	}
+        }
+        // Gestisci l'accesso
+        if ("Accesso".equals(action)) {
+        	 // Verifica le credenziali
+            Utente utente = serverData.getUtente(username);
+        	if (utente != null && utente.getPassword().equals(password)) {
+                // Credenziali valide, reindirizza alla pagina di successo (welcome.jsp)
+                request.getSession().setAttribute("utente", utente);
+                response.sendRedirect("./pages/welcome.jsp");
+            } else {
+                // Credenziali non valide, imposta un messaggio di errore nell'attributo request
+            	String error = "credenziali non valide";
+        		session.setAttribute("error", error);
+        		request.getRequestDispatcher("./pages/error.jsp").forward(request, response);
+            }
         }
     }
 }
