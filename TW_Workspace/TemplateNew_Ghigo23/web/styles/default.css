@@ -38,41 +38,4 @@ ul {
     margin-left: 20px;
 }
 
-/* Stile per link */
-a {
-    color: #197278;
-    text-decoration: none;
-}
 
-a:hover {
-    text-decoration: underline;
-}
-
-/* Stile per i pulsanti */
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #197278;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.button:hover {
-    background-color: #283D3B;
-}
-
-/* Stile per i moduli */
-form {
-    margin: 20px;
-}
-
-/* Stile per gli input dei moduli */
-input[type="text"], input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    width: 100%;
-    margin-bottom: 10px;
-}

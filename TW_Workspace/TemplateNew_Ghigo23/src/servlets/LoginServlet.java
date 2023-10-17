@@ -74,6 +74,10 @@ public class LoginServlet extends HttpServlet {
                 // Credenziali valide, reindirizza alla pagina di successo (welcome.jsp)
                 request.getSession().setAttribute("utente", utente);
                 response.sendRedirect("./pages/welcome.jsp");
+            } else if(utente == null){
+            	String error = "utente non registrato";
+            	session.setAttribute("error", error);
+        		request.getRequestDispatcher("./pages/error.jsp").forward(request, response);
             } else {
                 // Credenziali non valide, imposta un messaggio di errore nell'attributo request
             	String error = "credenziali non valide";
