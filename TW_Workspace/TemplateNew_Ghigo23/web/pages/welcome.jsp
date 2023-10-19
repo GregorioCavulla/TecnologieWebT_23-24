@@ -9,7 +9,7 @@
 <meta name="author" content="Ghigo">
 <title>Welcome Page</title>
 
-<!-- Insert js scripts -->
+<!-- Insert external js scripts -->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 <!-- custom stylesheet -->
@@ -21,6 +21,10 @@
 
 	<!-- put here your application html -->
 	<div></div>
+	
 	<%@ include file="../fragments/footer.html"%>
+	
+	<!-- Insert js scripts -->
+	
 </body>
 </html>
