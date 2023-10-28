@@ -20,7 +20,9 @@
 	<%@ include file="../fragments/header.jsp"%>
 
 	<!-- put here your application html -->
-	<div></div>
+	<div>
+	<%@ include file="../fragments/AjaxClient.html"%>
+	</div>
 	
 	<%@ include file="../fragments/footer.html"%>
 	

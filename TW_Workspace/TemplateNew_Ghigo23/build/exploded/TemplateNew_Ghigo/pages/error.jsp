@@ -7,7 +7,7 @@
 <meta name="author" content="Ghigo">
 <title>Errore</title>
 
-<!-- Insert js scripts -->
+<!-- Insert external js scripts -->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 <!-- Insert next updated stylesheets -->
@@ -24,5 +24,7 @@
 			pagina di login</a>
 	</div>
 	<%@ include file="../fragments/footer.html"%>
+	
+	<!-- Insert external js scripts -->
 </body>
 </html>

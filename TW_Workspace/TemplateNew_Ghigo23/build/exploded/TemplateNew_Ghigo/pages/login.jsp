@@ -6,7 +6,7 @@
 <meta name="author" content="Ghigo">
 <title>Login</title>
 
-<!-- Insert js scripts -->
+<!-- Insert external js scripts -->
 
 <!-- Insert external links -->
 <link rel="stylesheet"
@@ -44,5 +44,8 @@
  	</script>
 -->
 	<%@ include file="../fragments/footer.html"%>
+	
+	<!-- Insert js scripts -->
+	
 </body>
 </html>
