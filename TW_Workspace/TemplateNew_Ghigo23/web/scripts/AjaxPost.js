@@ -10,7 +10,7 @@ document.getElementById('jsonForm').addEventListener('submit', function(e) {
 	};
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'JsonReceiverServlet', true);
+	xhr.open('POST', '../AjaxPost', true);
 	xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 	xhr.send(JSON.stringify(jsonData));
 

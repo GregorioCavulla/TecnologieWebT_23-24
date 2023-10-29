@@ -13,42 +13,35 @@
 
 <!-- custom stylesheet -->
 <style>
-  #welcome-message {
+#welcome-message {
 	position: relative;
-    text-align: left;
-    float: left;
-    margin-left: 20px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-  }
-  
-  #logout-button{
-	position: relative;
-	float: right;
-	margin-right: 20px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-  }
-</style>		
-<!-- Insert next updated stylesheets -->		
+	text-align: left;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 19px;
+	margin-top: 18px;
+}
+</style>
+<!-- Insert next updated stylesheets -->
 <link rel="stylesheet" href="../styles/buttons.css"></link>
+<link rel="stylesheet" href="../styles/default.css"></link>
 
 </head>
 
 <body onload="">
-  <%
+	<%
   // Questo perché nella ServletAuth:71 o :85 session.setAttribute("utente", u);
   Utente utente = (Utente) session.getAttribute("utente");
   %>
-  <div id="welcome-message">
-    <h1>
-      Welcome,
-      <%=utente.getUsername()%>!<br />
-    </h1>
-  </div>
-  <div id="logout-button">
-    <a class="button log-button" href="./login.jsp">logout</a>
-  </div>
+	<div id="welcome-message">
+		<h1 style="color: #fff;">
+			Welcome,
+			<%=utente.getUsername()%>!<br />
+		</h1>
+	</div>
+	<div id="logout-button">
+		<a class="button log-button" href="./login.jsp">logout</a>
+	</div>
 </body>
 </html>
 

@@ -15,18 +15,29 @@
 <!-- custom stylesheet -->
 <link type="text/css" href="../styles/default.css" rel="stylesheet"></link>
 
-</head>
-<body onload="">
-	<%@ include file="../fragments/header.jsp"%>
+<style>
+/* CSS per il contenuto centrale */
+#content {
+	position: absolute;
+	margin-top: 75px;
+}
+</style>
 
-	<!-- put here your application html -->
-	<div>
-	<%@ include file="../fragments/AjaxClient.html"%>
+</head>
+<body>
+	<div id="header" style="height: 75px;background-color: #444;">
+		<%@ include file="../fragments/header.jsp"%>
 	</div>
-	
-	<%@ include file="../fragments/footer.html"%>
-	
+	<!-- put here your application html -->
+	<div id="content">
+		<%@ include file="../fragments/AjaxGet.html"%>
+		<%@ include file="../fragments/AjaxPost.html"%>
+	</div>
+
+	<div id="footer">
+		<%@ include file="../fragments/footer.html"%>
+	</div>
 	<!-- Insert js scripts -->
-	
+
 </body>
 </html>

@@ -1,5 +1,4 @@
-var pageCounter = 1;
-var animalContainer = document.getElementById("animal-info");
+var container = document.getElementById("data-info");
 var btn = document.getElementById("btn");
 
 btn.addEventListener("click", function() {
@@ -19,57 +18,20 @@ btn.addEventListener("click", function() {
 		}
 	}
 	request.send();
-	pageCounter++;
-	if (pageCounter > 3) {
-		btn.classList.add("hide-me");
-	}
 })
 
 //segue la logica di rendering dell'HTML utilizzando la var HTMLstring che inizia con 
-// <p> aggiungendo progressivamente i campi di data che si vogliono mostrare e concludendo con </p>
-
-/*
-*	l'esempio che segue è il rendering di un oggetto "animale domestico" romato in questo modo:
-*	
-*	  {
-*		"name": "Meowsy",
-*	    "species" : "cat",
-*	    "foods": {
-*	      "likes": ["tuna", "catnip"],
-*	      "dislikes": ["ham", "zucchini"]
-*	   }
-*	
-	la frase mostrata nel div sulla pagina è:
-	Meowsy is a cat that likes tuna and catnip but dislikes ham and zucchini
-*/
+// <p> per un paragrafo o <ul> nel caso di una lista aggiungendo progressivamente i campi di data che si vogliono mostrare e concludendo con </p>
 
 
 function renderHTML(data) {
-	var HTMLstring = "";
+	var HTMLstring = "<ul>";
 
-	console.log(data);
 	for (var i = 0; i < data.length; i++) {
-		HTMLstring += "<p>" + data[i].name + " is a " + data[i].species + " that likes ";
-		for (var ii = 0; ii < data[i].foods.likes.length; ii++) {
-			if (ii == 0) {
-				HTMLstring += data[i].foods.likes[ii];
-			} else {
-				HTMLstring += " and " + data[i].foods.likes[ii];
-			}
-		}
-
-		HTMLstring += " but dislikes ";
-
-		for (var ii = 0; ii < data[i].foods.dislikes.length; ii++) {
-			if (ii == 0) {
-				HTMLstring += data[i].foods.dislikes[ii];
-			} else {
-				HTMLstring += " and " + data[i].foods.dislikes[ii];
-			}
-		}
-
-		HTMLstring += ".</p>";
+		HTMLstring += "<li>Username: " + data[i].username + ", Password: " + data[i].password + "</li>";
 	}
 
-	animalContainer.insertAdjacentHTML('beforeend', HTMLstring);
+	HTMLstring += "</ul>";
+
+	container.insertAdjacentHTML('beforeend', HTMLstring);
 }

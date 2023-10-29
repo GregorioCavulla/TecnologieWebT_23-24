@@ -37,6 +37,6 @@
 	<classpathentry kind="lib" path="lib/tomcat/tomcat-util-scan.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat/tomcat-websocket.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat/websocket-api.jar"/>
-	<classpathentry kind="lib" path="lib/gson-2.10.1.jar"/>
+	<classpathentry kind="lib" path="/home/ghigo/Documenti/GitHub/TecnologieWebT_23-24/TW_Workspace/TemplateNew_Ghigo23/lib/gson-2.10.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

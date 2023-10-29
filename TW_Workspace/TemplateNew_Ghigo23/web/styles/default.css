@@ -13,7 +13,7 @@ body {
 }
 
 /* Stile per l'intestazione */
-header {
+.header {
     background-color: #333;
     color: #fff;
     padding: 10px;
