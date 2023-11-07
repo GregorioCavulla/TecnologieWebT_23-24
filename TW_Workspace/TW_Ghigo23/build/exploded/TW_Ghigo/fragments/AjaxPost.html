@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Invio JSON a Servlet</title>
+	<link type="text/css" href="../styles/default.css" rel="stylesheet">
+	</link>
+	<link type="text/css" href="../styles/buttons.css" rel="stylesheet">
+	</link>
+</head>
+
+<body>
+	<h1>Invio JSON a Servlet</h1>
+	<form id="jsonForm">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required>
+		<br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+		<br>
+		<button type="submit">Invia JSON</button>
+	</form>
+	<div id="result"></div>
+
+	<script src="../scripts/AjaxPost.js"></script>
+</body>
+
+</html>

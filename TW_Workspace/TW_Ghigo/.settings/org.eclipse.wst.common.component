@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="TW_Ghigo">
-        <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="TW_Ghigo"/>
-        <property name="java-output-path" value="/TW_Ghigo/build/classes"/>
-    </wb-module>
-</project-modules>
