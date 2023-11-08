@@ -18,7 +18,7 @@ import beans.Utente;
 /**
  * Questa classe gestisce le richieste POST inviate tramite AJAX per aggiungere un utente.
  */
-@WebServlet("/AjaxPost")
+@WebServlet("/ajaxPost")
 public class AjaxPostServlet extends HttpServlet {
     private static final long serialVersionUID = 7042742681874209336L;
 
@@ -42,22 +42,25 @@ public class AjaxPostServlet extends HttpServlet {
 
         // Converte il JSON in un oggetto Java utilizzando Gson
         Gson gson = new Gson();
-        Utente utente = gson.fromJson(jsonBuilder.toString(), Utente.class);
+        Utente utenteTemp = gson.fromJson(jsonBuilder.toString(), Utente.class);
 
         // Aggiungi l'utente alla lista
         ServerData serverData = ServerData.getServerData();
-        boolean success = serverData.addUtente(utente);
+        Utente utente = serverData.creaUtente(utenteTemp);
 
         // Restituisci una risposta al client
+     // Restituisci una risposta al client in formato JSON
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
+        String jsonResponse;
 
-        if (success) {
-            out.println("Utente aggiunto con successo.");
+        if (utente != null && serverData.addUtente(utente)) {
+            jsonResponse = "{\"message\": \"Utente aggiunto con successo.\"}";
         } else {
-            out.println("Errore nell'aggiunta dell'utente. Potrebbe già esistere.");
+            jsonResponse = "{\"message\": \"Errore nell'aggiunta dell'utente, è già presente.\"}";
         }
 
+        out.println(jsonResponse);
         out.flush();
     }
 }

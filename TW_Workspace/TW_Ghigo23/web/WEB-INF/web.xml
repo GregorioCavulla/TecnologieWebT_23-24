@@ -24,15 +24,6 @@
 
     <!-- Definizione dei servlet e dei relativi mapping URL -->
 
-    <servlet>
-        <servlet-name>AjaxPostServlet</servlet-name>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AjaxPostServlet</servlet-name>
-        <url-pattern>/AjaxPost</url-pattern>
-    </servlet-mapping>
-
     <!-- Specifica i file di benvenuto predefiniti -->
     <welcome-file-list>
         <!-- Elenco dei file di benvenuto predefiniti -->

@@ -38,4 +38,31 @@ ul {
     margin-left: 20px;
 }
 
+/* Stile generico per tutti i form */
+form {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    max-width: 278px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
 

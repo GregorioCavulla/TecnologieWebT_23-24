@@ -22,7 +22,7 @@
 <body>
 	<div class="login-container">
 		<h2>Login</h2>
-		<form class="login-form" action="../Login" method="post">
+		<form class="login-form" action="../login" method="post">
 			<label for="username">Username:</label> <input type="text"
 				id="username" name="username" required> <label
 				for="password">Password:</label> <input type="password"

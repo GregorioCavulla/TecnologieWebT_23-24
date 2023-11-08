@@ -15,7 +15,7 @@ import beans.Utente;
 /**
  * Questa classe gestisce le richieste relative al login e alla registrazione degli utenti.
  */
-@WebServlet("/Login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 7859707350222212965L;
 

@@ -18,7 +18,7 @@ import beans.Utente;
 /**
  * Questa classe gestisce le richieste GET inviate tramite AJAX per ottenere la lista degli utenti.
  */
-@WebServlet("/AjaxGet")
+@WebServlet("/ajaxGet")
 public class AjaxGetServlet extends HttpServlet {
     private static final long serialVersionUID = -8277165204447692976L;
 
@@ -38,7 +38,8 @@ public class AjaxGetServlet extends HttpServlet {
 
         // Ottenere la lista degli utenti
         List<Utente> utenti = serverData.getUtenti();
-        System.out.println("Lunghezza utenti: " + utenti.size());
+        int len = utenti.size();
+        System.out.println("json lungo "+len);
 
         // Convertire la lista degli utenti in formato JSON
         Gson gson = new Gson();

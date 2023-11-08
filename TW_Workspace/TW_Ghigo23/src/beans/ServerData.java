@@ -82,4 +82,19 @@ public class ServerData implements Serializable {
     	System.out.println("ho aggiunto: "+ utente.getUsername());
     	return true;    	
     }
+    
+    public Utente creaUtente(Utente utente) {
+    	for(Utente u:this.getUtenti()) {
+    		if(u.getUsername().equals(utente.getUsername())) {
+    			System.out.println("utente già esistente " + utente.getUsername());
+    			return null;
+    		}
+    	}
+    	Utente u = new Utente();
+    	u.setPassword(utente.getPassword());
+    	u.setUsername(utente.getUsername());
+    	
+    	return u;
+    }
+    
 }

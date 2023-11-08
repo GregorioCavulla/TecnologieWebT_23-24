@@ -10,15 +10,16 @@ document.getElementById('jsonForm').addEventListener('submit', function(e) {
 	};
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', '../AjaxPost', true);
+	xhr.open('POST', '../ajaxPost', true);
 	xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 	xhr.send(JSON.stringify(jsonData));
 
 	xhr.onload = function() {
 		if (xhr.status === 200) {
-			document.getElementById('result').innerHTML = "Dati inviati con successo.";
+			var response = JSON.parse(xhr.responseText);
+        	document.getElementById('result').innerHTML = response.message;
 		} else {
-			document.getElementById('result').innerHTML = "Errore nell'invio dei dati.";
-		}
+		    document.getElementById('result').innerHTML = "Errore nell'invio dei dati.";
+    	}
 	};
 });

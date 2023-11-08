@@ -1,23 +1,29 @@
 var container = document.getElementById("data-info");
 var btn = document.getElementById("btn");
-
+var countIndex = 0;
+var reqData;
 btn.addEventListener("click", function() {
 
 	var request = new XMLHttpRequest();
-	//request alla servlet impostata con la GET
-	request.open('GET', '../AjaxGet');
 
-	request.onload = function() {
-		if (request.status === 200) {
-			var reqData = JSON.parse(request.responseText);
-			renderHTML(reqData);
-			console.log("richiesta inviata")
-		} else {
-			//gestione errore
-			alert("errore nella GET");
+
+	if (countIndex !== 0) {
+		renderHTML(reqData);
+	} else {
+		//request alla servlet impostata con la GET
+		request.open('GET', '../ajaxGet');
+
+		request.onload = function() {
+			if (request.status === 200) {
+				reqData = JSON.parse(request.responseText);
+				renderHTML(reqData);
+			} else {
+				//gestione errore
+				alert("errore nella GET");
+			}
 		}
+		request.send();
 	}
-	request.send();
 })
 
 //segue la logica di rendering dell'HTML utilizzando la var HTMLstring che inizia con 
@@ -25,13 +31,15 @@ btn.addEventListener("click", function() {
 
 
 function renderHTML(data) {
-	var HTMLstring = "<ul>";
-
-	for (var i = 0; i < data.length; i++) {
-		HTMLstring += "<li>Username: " + data[i].username + ", Password: " + data[i].password + "</li>";
+	if (countIndex < data.length) {
+		var HTMLstring = "<ul>";
+		HTMLstring += "<li>Username: " + data[countIndex].username + ", Password: " + data[countIndex].password + "</li>";
+		HTMLstring += "</ul>";
+		container.insertAdjacentHTML('beforeend', HTMLstring);
+		countIndex++;
+	} else {
+		container.insertAdjacentHTML('beforeend', "Utenti terminati");
+		btn.style.display = "none";
 	}
 
-	HTMLstring += "</ul>";
-
-	container.insertAdjacentHTML('beforeend', HTMLstring);
 }
