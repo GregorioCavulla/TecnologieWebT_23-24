@@ -40,7 +40,7 @@
 		</h1>
 	</div>
 	<div id="logout-button">
-		<a class="button log-button" href="./login.jsp">logout</a>
+		<button onclick="../logout" class="button log-button">logout</button>
 	</div>
 </body>
 </html>

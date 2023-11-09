@@ -2,6 +2,8 @@ package beans;
 
 import java.io.Serializable;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Rappresenta un utente dell'applicazione.
  */
@@ -11,8 +13,23 @@ public class Utente implements Serializable {
 
     private String username;
     private String password;
+    private HttpSession session;
+    
 
-    /**
+	public Utente() {
+		super();
+		this.session=null;
+		this.username="";
+		this.password="";
+	}
+
+	public Utente(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
+	/**
      * Restituisce il nome utente dell'utente.
      *
      * @return Il nome utente.
@@ -47,4 +64,12 @@ public class Utente implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public HttpSession getSession() {
+		return session;
+	}
+
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
 }

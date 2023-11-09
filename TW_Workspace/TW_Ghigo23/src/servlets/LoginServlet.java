@@ -75,7 +75,9 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("./pages/error.jsp").forward(request, response);
             } else {
                 Utente utente = serverData.getUtente(username);
+                utente.setSession(session);
                 request.getSession().setAttribute("utente", utente);
+                request.getSession().setAttribute("logged", true);
                 response.sendRedirect("./pages/welcome.jsp");
             }
         }
@@ -86,14 +88,17 @@ public class LoginServlet extends HttpServlet {
             Utente utente = serverData.getUtente(username);
             if (utente != null && utente.getPassword().equals(password)) {
                 // Credenziali valide, reindirizza alla pagina di successo (welcome.jsp)
+            	utente.setSession(session);
                 request.getSession().setAttribute("utente", utente);
+                request.getSession().setAttribute("logged", true);
                 response.sendRedirect("./pages/welcome.jsp");
             } else if (utente == null) {
+            	// Creadenziali non valide, imposta un messaggio di errore nell'attributo request, inolra alla pagina di errore (error.jsp)
                 String error = "utente non registrato";
                 session.setAttribute("error", error);
                 request.getRequestDispatcher("./pages/error.jsp").forward(request, response);
             } else {
-                // Credenziali non valide, imposta un messaggio di errore nell'attributo request
+                // Credenziali non valide, imposta un messaggio di errore nell'attributo request, inolra alla pagina di errore (error.jsp)
                 String error = "credenziali non valide";
                 session.setAttribute("error", error);
                 request.getRequestDispatcher("./pages/error.jsp").forward(request, response);

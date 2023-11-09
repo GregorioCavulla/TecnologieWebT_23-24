@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="author" content="Ghigo">
 <meta http-equiv="Refresh" content="3; URL=./pages/login.jsp">
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
 <title>Start Web Application</title>
 
 <!-- custom stylesheet -->
