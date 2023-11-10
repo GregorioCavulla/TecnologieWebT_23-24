@@ -17,6 +17,18 @@ public class LogoutServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 538742136318470907L;
 
+	/**
+	 * Gestisce le richieste POST relative al logout dell'utente.
+	 *
+	 * @param request  L'oggetto HttpServletRequest che rappresenta la richiesta
+	 *                 HTTP in arrivo.
+	 * @param response L'oggetto HttpServletResponse che rappresenta la risposta
+	 *                 HTTP da restituire al client.
+	 * @throws ServletException Se si verifica un errore nella gestione della
+	 *                          richiesta.
+	 * @throws IOException      Se si verifica un errore di input/output durante la
+	 *                          gestione della richiesta.
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ServerData serverData = ServerData.getServerData();
@@ -26,11 +38,12 @@ public class LogoutServlet extends HttpServlet {
 
 		// Esegui la logica di logout, ad esempio invalidando la sessione
 		serverData.removeLiveSession(session);
-		
-		
-		for(HttpSession s : serverData.getLiveSessions()) {
-		System.out.println(s.getAttribute("utente"));
+
+		System.out.println("liveSessions: ");
+		for (HttpSession s : serverData.getLiveSessions()) {
+			Utente u = (Utente) s.getAttribute("utente");
+			System.out.println(s.getAttribute("utente") + "user: " + u.getUsername());
 		}
-		//il redirec è gestito dallo scritp "Logout.js"
+		// il redirect è gestito dallo script "Logout.js"
 	}
 }

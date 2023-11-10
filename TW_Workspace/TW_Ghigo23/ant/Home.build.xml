@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- Definizione del progetto -->
-<project name="TemplateNew_Ghigo" basedir=".." default="02.print.properties">
+<project name="TW_Ghigo23" basedir=".." default="02.print.properties">
 
 	<!-- Sezione per la configurazione delle proprietà -->
 	<!-- Questo target imposta le proprietà del progetto -->

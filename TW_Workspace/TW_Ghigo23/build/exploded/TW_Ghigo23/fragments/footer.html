@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ghigo">
+	<title>Footer</title>
+	<style>
+		/* Stile per il footer */
+		footer {
+			background-color: #333;
+			color: #555;
+			padding: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		/* Stile per l'orologio */
+		#clock {
+			font-size: 18px;
+		}
+	</style>
+</head>
+
+<body>
+	<footer>
+		<div id="left-content">
+			<p>Developed by Ghigo</p>
+		</div>
+		<div id="right-content">
+			<div id="clock"></div>
+		</div>
+	</footer>
+
+	<script src="../scripts/clock.js"></script>
+</body>
+
+</html>

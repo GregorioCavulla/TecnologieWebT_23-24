@@ -34,7 +34,7 @@
 	<div id="content">
 		<%@ include file="../fragments/AjaxGet.html"%>
 		<%@ include file="../fragments/AjaxPost.html"%>
-<!--  	<%@ include file="../fragments/LongPolling.html" %> -->	
+		<%@ include file="../fragments/LongPolling.html"%>
 	</div>
 
 	<div id="footer">
