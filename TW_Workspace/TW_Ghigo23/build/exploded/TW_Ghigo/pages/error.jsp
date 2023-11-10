@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="author" content="Ghigo">
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
 <title>Errore</title>
 
 <!-- Insert external js scripts -->
@@ -24,7 +26,7 @@
 			pagina di login</a>
 	</div>
 	<%@ include file="../fragments/footer.html"%>
-	
+
 	<!-- Insert external js scripts -->
 </body>
 </html>

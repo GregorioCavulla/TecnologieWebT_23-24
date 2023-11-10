@@ -32,7 +32,6 @@
 
 	</div>
 
-	<%@ include file="../pages/log.jsp" %>
 
 </body>
 </html>

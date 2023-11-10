@@ -30,9 +30,9 @@
 
 <body onload="">
 	<%
-  // Questo perché nella ServletAuth:71 o :85 session.setAttribute("utente", u);
-  Utente utente = (Utente) session.getAttribute("utente");
-  %>
+	// Questo perché nella ServletAuth:71 o :85 session.setAttribute("utente", u);
+	Utente utente = (Utente) session.getAttribute("utente");
+	%>
 	<div id="welcome-message">
 		<h1 style="color: #fff;">
 			Welcome,
@@ -40,8 +40,11 @@
 		</h1>
 	</div>
 	<div id="logout-button">
-		<a class="button log-button" href="./login.jsp">logout</a>
+		<button onclick="logout()" class="button log-button">Logout</button>
 	</div>
+	
+	<script src="../scripts/Logout.js"></script>
+    
 </body>
 </html>
 

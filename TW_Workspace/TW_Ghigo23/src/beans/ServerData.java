@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Rappresenta i dati del server, inclusa una lista di utenti.
  */
@@ -13,6 +15,7 @@ public class ServerData implements Serializable {
 
     private List<Utente> utenti = new ArrayList<>();
     private static ServerData s = new ServerData();
+    private List<HttpSession> liveSessions = new ArrayList<>();
 
     /**
      * Restituisce un'istanza condivisa di ServerData (singleton).
@@ -96,5 +99,16 @@ public class ServerData implements Serializable {
     	
     	return u;
     }
+
+	public List<HttpSession> getLiveSessions() {
+		return liveSessions;
+	}
+
+	public void addLiveSession(HttpSession liveSession) {
+		this.liveSessions.add(liveSession);
+	}
     
+	public void removeLiveSession(HttpSession liveSession) {
+		this.liveSessions.remove(liveSession);
+	}
 }

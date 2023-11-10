@@ -76,8 +76,9 @@ public class LoginServlet extends HttpServlet {
             } else {
                 Utente utente = serverData.getUtente(username);
                 utente.setSession(session);
-                request.getSession().setAttribute("utente", utente);
-                request.getSession().setAttribute("logged", true);
+                session.setAttribute("utente", utente);
+                session.setAttribute("logged", true);
+                serverData.addLiveSession(session);
                 response.sendRedirect("./pages/welcome.jsp");
             }
         }
@@ -91,6 +92,7 @@ public class LoginServlet extends HttpServlet {
             	utente.setSession(session);
                 request.getSession().setAttribute("utente", utente);
                 request.getSession().setAttribute("logged", true);
+                serverData.addLiveSession(session);
                 response.sendRedirect("./pages/welcome.jsp");
             } else if (utente == null) {
             	// Creadenziali non valide, imposta un messaggio di errore nell'attributo request, inolra alla pagina di errore (error.jsp)
@@ -104,5 +106,9 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("./pages/error.jsp").forward(request, response);
             }
         }
+        
+		for(HttpSession s : serverData.getLiveSessions()) {
+		System.out.println(s.getAttribute("utente"));
+		}
     }
 }

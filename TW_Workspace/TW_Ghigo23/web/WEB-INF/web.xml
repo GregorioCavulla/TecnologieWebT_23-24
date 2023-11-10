@@ -32,58 +32,6 @@
             questo caso, c'è solo index.jsp. -->
     </welcome-file-list>
     
-    	<!-- AjaxGetServlet -->
-	<servlet>
-		<!-- Nome del servlet -->
-		<servlet-name>AjaxGetServlet</servlet-name>
-		<!-- Classe del servlet utilizzata per gestire le richieste -->
-		<servlet-class>servlets.AjaxGetServlet</servlet-class>
-		<!-- Qui definiamo un servlet chiamato AjaxGetServlet. Questo servlet gestirà le richieste in arrivo. -->
-	</servlet>
-	<servlet-mapping>
-		<!-- Nome del servlet al quale il mapping URL si riferisce -->
-		<servlet-name>AjaxGetServlet</servlet-name>
-		<!-- Modello URL al quale il servlet risponderà -->
-		<url-pattern>/AjaxGet</url-pattern>
-		<!-- Definiamo una mappatura tra il servlet AjaxGetServlet e il percorso URL /AjaxGet. Questo significa che il servlet risponderà alle richieste in questo percorso URL. -->
-	</servlet-mapping>
-
- 
-	<!-- AjaxPostServlet -->
-	<servlet>
-		<!-- Nome del servlet -->
-		<servlet-name>AjaxPostServlet</servlet-name>
-		<!-- Classe del servlet utilizzata per gestire le richieste -->
-		<servlet-class>servlets.AjaxPostServlet</servlet-class>
-		<!-- Allo stesso modo, definiamo un servlet chiamato AjaxPostServlet per gestire le richieste POST. -->
-	</servlet>
-	<servlet-mapping>
-		<!-- Nome del servlet al quale il mapping URL si riferisce -->
-		<servlet-name>AjaxPostServlet</servlet-name>
-		<!-- Modello URL al quale il servlet risponderà -->
-		<url-pattern>/AjaxPost</url-pattern>
-		<!-- Mappiamo il servlet AjaxPostServlet al percorso URL /AjaxPost. -->
-	</servlet-mapping>
-
-
-
-	<!-- LoginServlet -->
-	<servlet>
-		<!-- Nome del servlet -->
-		<servlet-name>LoginServlet</servlet-name>
-		<!-- Classe del servlet utilizzata per gestire le richieste -->
-		<servlet-class>servlets.LoginServlet</servlet-class>
-		<!-- Definiamo un altro servlet chiamato LoginServlet per gestire le richieste relative al login. -->
-	</servlet>
-	<servlet-mapping>
-		<!-- Nome del servlet al quale il mapping URL si riferisce -->
-		<servlet-name>LoginServlet</servlet-name>
-		<!-- Modello URL al quale il servlet risponderà -->
-		<url-pattern>/Login</url-pattern>
-		<!-- Mappiamo il servlet LoginServlet al percorso URL /Login. -->
-	</servlet-mapping>
-    
-
     <!-- Definizione delle pagine di errore personalizzate -->
     <error-page>
         <!-- Specifica il codice di errore HTTP (404 - pagina non trovata) -->

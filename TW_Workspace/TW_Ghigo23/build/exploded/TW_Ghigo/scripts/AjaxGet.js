@@ -12,11 +12,12 @@ btn.addEventListener("click", function() {
 	} else {
 		//request alla servlet impostata con la GET
 		request.open('GET', '../ajaxGet');
-
+		console.log(request.status);
 		request.onload = function() {
 			if (request.status === 200) {
 				reqData = JSON.parse(request.responseText);
 				renderHTML(reqData);
+				console.log(reqData);
 			} else {
 				//gestione errore
 				alert("errore nella GET");
