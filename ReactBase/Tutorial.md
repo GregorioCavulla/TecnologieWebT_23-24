@@ -2,32 +2,44 @@
 
 ## Creazione della repository
 
-Per creare la repository dell'applicazione, utilizzare il comando:
+Per iniziare a lavorare con l'applicazione, seguire questi passaggi:
 
-```
-npx create-react-app <nome app>
-```
+1. Installare le dipendenze:
 
-## Contenuto della repository
+   ```bash
+   npm install
+   ```
 
-All'interno di questa repository saranno presenti i seguenti elementi:
+2. Creare la repository dell'applicazione utilizzando il comando:
 
-- La cartella `src` in cui inserire tutti i componenti e i file CSS di `Index` e `App`. Se si dispone di un solo file CSS, sovrascrivere entrambi con il proprio CSS. Non modificare i nomi dei file che potrebbe causare problemi.
+   ```bash
+   npx create-react-app <nome-app>
+   ```
 
-- La cartella `public` in cui inserire `index.html`.
+## Struttura della repository
 
-Assicurarsi che `index.html` contenga i collegamenti agli script dei vari componenti, ad esempio:
+La repository contiene la seguente struttura:
 
-```html
-<script src="./react-components/App.js" type="text/babel"></script>
-```
+- La cartella `src` è destinata a contenere tutti i componenti e i file CSS di `Index` e `App`. In questa cartella è possibile organizzare il codice in modo logico, ad esempio separando i componenti in sottocartelle.
+
+- La cartella `public` contiene il file `index.html`, che è il punto di ingresso dell'applicazione React. Assicurarsi che `index.html` contenga i collegamenti agli script dei vari componenti, ad esempio:
+
+  ```html
+  <script src="./react-components/App.js" type="text/babel"></script>
+  ```
+
+  In questa cartella, è possibile gestire anche risorse statiche come immagini o file di configurazione.
+
+Assicurarsi di rispettare la struttura di base di una applicazione React creata con `create-react-app`, poiché modificare i nomi dei file predefiniti potrebbe causare problemi.
 
 ## Esecuzione dell'applicazione
 
-Per lanciare l'applicazione e visualizzarla nel browser utilizzare il comando:
+Per visualizzare l'applicazione nel browser, eseguire il seguente comando:
 
-```
+```bash
 npm start
 ```
 
-Verrà restituito un URL (locale) che permetterà di visualizzare l'applicazione.
+Verrà restituito un URL locale (di solito `http://localhost:3000`) che permette di visualizzare l'applicazione in tempo reale mentre si apportano modifiche.
+
+Buon lavoro!
