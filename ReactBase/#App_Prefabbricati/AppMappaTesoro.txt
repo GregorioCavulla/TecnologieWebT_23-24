@@ -1,0 +1,25 @@
+// App.js
+import React, { useState } from 'react';
+import ConfigSection from './ConfigSection';
+import MapSection from './MapSection';
+import ScoreSection from './ScoreSection';
+
+const App = () => {
+  // ... (stato e funzioni di gestione rimangono invariati)
+
+  return (
+    <div className="app">
+      <ConfigSection
+        width={width}
+        height={height}
+        onWidthChange={handleWidthChange}
+        onHeightChange={handleHeightChange}
+        onResetGame={resetGame}
+      />
+      <MapSection grid={renderGrid()} onCellClick={handleCellClick} />
+      <ScoreSection attempts={attempts} found={found} />
+    </div>
+  );
+};
+
+export default App;
