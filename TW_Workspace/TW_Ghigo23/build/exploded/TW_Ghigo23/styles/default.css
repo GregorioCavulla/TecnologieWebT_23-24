@@ -86,3 +86,19 @@ form input[type="password"] {
 #message-input {
 	width: 200px;
 }
+
+
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#content {
+	position: absolute;
+	margin-top: 75px;
+	margin-left: 50px;
+}
+
+

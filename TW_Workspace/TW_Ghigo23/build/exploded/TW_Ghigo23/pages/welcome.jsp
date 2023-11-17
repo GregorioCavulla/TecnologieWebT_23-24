@@ -17,13 +17,7 @@
 <!-- custom stylesheet -->
 <link type="text/css" href="../styles/default.css" rel="stylesheet"></link>
 
-<style>
-/* CSS per il contenuto centrale */
-#content {
-	position: absolute;
-	margin-top: 75px;
-}
-</style>
+
 
 </head>
 <body>
