@@ -88,6 +88,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("utente", utente);
 				session.setAttribute("logged", true);
 				serverData.addLiveSession(session);
+				serverData.addLiveUser(utente);
 				response.sendRedirect("./pages/welcome.jsp");
 			}
 		}
@@ -102,6 +103,7 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("utente", utente);
 				request.getSession().setAttribute("logged", true);
 				serverData.addLiveSession(session);
+				serverData.addLiveUser(utente);
 				response.sendRedirect("./pages/welcome.jsp");
 			} else if (utente == null) {
 				// Credenziali non valide, utente non registrato, mostra un messaggio di errore

@@ -43,19 +43,19 @@ public class AjaxGetServlet extends HttpServlet {
 		ServerData serverData = ServerData.getServerData();
 
 		// Ottenere la lista degli utenti
-		List<Utente> utenti = serverData.getUtenti();
+		List<Utente> liveUsers = serverData.getLiveUsers();
 
 		System.out.println("utenti: ");
 
-		for (Utente u : utenti) {
+		for (Utente u : liveUsers) {
 			System.out.println("utente: " + u.getUsername());
 		}
-		int len = utenti.size();
+		int len = liveUsers.size();
 		System.out.println("json lungo " + len);
 
 		// Convertire la lista degli utenti in formato JSON
 		Gson gson = new Gson();
-		String json = gson.toJson(utenti);
+		String json = gson.toJson(liveUsers);
 		System.out.println("JSON: " + json);
 
 		// Impostare il tipo di contenuto nella risposta come JSON

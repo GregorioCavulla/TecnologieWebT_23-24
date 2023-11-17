@@ -13,9 +13,10 @@ public class ServerData implements Serializable {
 
 	private static final long serialVersionUID = 1936094822314768887L;
 
-	private List<Utente> utenti = new ArrayList<>();
+	private List<Utente> utenti = new ArrayList<Utente>();
+	private List<Utente> liveUsers = new ArrayList<Utente>();
 	private static ServerData s = new ServerData();
-	private List<HttpSession> liveSessions = new ArrayList<>();
+	private List<HttpSession> liveSessions = new ArrayList<HttpSession>();
 
 	/**
 	 * Restituisce un'istanza condivisa di ServerData (singleton).
@@ -145,4 +146,27 @@ public class ServerData implements Serializable {
 	public void removeLiveSession(HttpSession liveSession) {
 		this.liveSessions.remove(liveSession);
 	}
+
+	public List<Utente> getLiveUsers() {
+		return liveUsers;
+	}
+	
+	public Utente getLiveUser(String username) {
+		for (Utente u : liveUsers) {
+			if (u.getUsername().equals(username)) {
+				return u;
+			}
+		}
+		return null;
+	}
+
+
+	public boolean addLiveUser(Utente utente) {
+		return this.liveUsers.add(utente);
+	}
+	
+	public void removeLiveUser(Utente utente) {
+		this.liveUsers.remove(utente);
+	}
+
 }

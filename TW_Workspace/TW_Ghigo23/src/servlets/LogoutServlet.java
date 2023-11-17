@@ -38,7 +38,8 @@ public class LogoutServlet extends HttpServlet {
 
 		// Esegui la logica di logout, ad esempio invalidando la sessione
 		serverData.removeLiveSession(session);
-
+		serverData.removeLiveUser(utente);
+		
 		System.out.println("liveSessions: ");
 		for (HttpSession s : serverData.getLiveSessions()) {
 			Utente u = (Utente) s.getAttribute("utente");
