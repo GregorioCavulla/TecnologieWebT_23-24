@@ -5,7 +5,9 @@ public class Drink {
 	private Double cost;
 	private Boolean stato;
 	
-	
+	public Drink () {
+		stato = false;
+	}
 	
 	public String getName() {
 		return name;

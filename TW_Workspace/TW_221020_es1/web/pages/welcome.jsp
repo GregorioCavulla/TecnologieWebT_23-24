@@ -1,6 +1,12 @@
 <%@page import="beans.Utente"%>
+<%@page import="beans.ServerData"%>
+<%@page import="beans.Tavolo"%>
+<%@page import="beans.Drink"%>
+
+<%@page import="java.util.*"%>
 <%@page import="java.net.*"%>
 <%@ page import="java.io.*"%>
+
 <%@ page import="java.util.regex.*"%>
 <!DOCTYPE HTML>
 <html>
@@ -28,20 +34,57 @@
 	<div id="content">
 		<%
 		String tavolo = (String) session.getAttribute("tavolo");
+		ServerData serverData = ServerData.getServerData();
+		List<Tavolo> tavoli = serverData.getTavoli();
 		Utente utenteCheck = (Utente) session.getAttribute("utente");
+		
 		%>
 
-		<%if(utenteCheck.getRole().equals("3")){
-			%>
-			<!-- render degli elementi utili all'admin -->
-			<h1>amministratore</h1>
-			<!-- tabella dei tavoli con i drink ordinati, tasto di chiusura forzata con logica simile a AjaxGetContoServlet -->
-		<%}else if(utenteCheck.getRole().equals("2")){
-			%>
-			<!-- render degli elementi per il cameriere -->
-			<h1>cameriere</h1>
-			<!-- tabella dei tavoli con i drink ordinati, con tasto di switch dello stato per ognuno -->
-		<%} else {%>
+		<%
+		if (utenteCheck.getRole().equals("3")) {
+		%>
+		<!-- render degli elementi utili all'admin -->
+		<h1>amministratore</h1>
+		<button class="button" id="btn-chiusura" onClick="chiudiLocale()">Chiudi il locale</button>
+		<%
+		for (Tavolo t : tavoli) {
+		%>
+		<tr>
+			<th><%=t.getNome()%></th>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					conto totale:
+					<%=t.getCostoTavolo()%></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<ul style="list-style-type: none; padding: 0;" class="hidden">
+					<%
+					for (Drink d : t.getDrinks()) {
+						if (d.getStato()) {
+					%>
+					<li><%=d.getName()%>, <%=d.getCost()%></li>
+					<%
+						}
+					}
+					%>
+				</ul>
+			</td>
+		</tr>
+		<%
+		}
+		%>
+		<!-- tabella dei tavoli con i drink ordinati, tasto di chiusura forzata con logica simile a AjaxGetContoServlet -->
+		<%
+		} else if (utenteCheck.getRole().equals("2")) {
+		%>
+		<!-- render degli elementi per il cameriere -->
+		<h1>cameriere</h1>
+		<!-- tabella dei tavoli con i drink ordinati, con tasto di switch dello stato per ognuno -->
+		<%} else if(!serverData.isChiuso()) {%>
 
 		<div id="data-info">
 			<h3>Tavolo</h3>
@@ -53,7 +96,7 @@
 		<div id="conto-info"></div>
 
 
-		<script src="../scripts/AjaxGet.js"></script>
+		
 
 		<form class="login-form" action="../ordina" method="post">
 			<label for="drink">Drink:</label> <input type="text" id="drink"
@@ -61,7 +104,12 @@
 			<button type="submit" name="action" value="Ordina" class="button">Ordina</button>
 		</form>
 	</div>
-	<%}%>
+	<script src="../scripts/AjaxGet.js"></script>
+	<%} else {%>
+		<h1>Mi dispiace, il locale è chiuso</h1>
+	<%} %>
+	
+	<script src="../scripts/ChiudiLocale.js"></script>
 
 	<div id="footer">
 		<%@ include file="../fragments/footer.html"%>

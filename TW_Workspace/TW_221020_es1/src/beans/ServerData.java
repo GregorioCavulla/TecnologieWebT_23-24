@@ -18,6 +18,7 @@ public class ServerData implements Serializable {
 	public List<Tavolo> getTavoli() {
 		return tavoli;
 	}
+	private boolean chiuso;
 
 	public void setTavoli(List<Tavolo> tavoli) {
 		this.tavoli = tavoli;
@@ -214,6 +215,18 @@ public class ServerData implements Serializable {
 	
 	public void removeLiveUser(Utente utente) {
 		this.liveUsers.remove(utente);
+	}
+
+	public boolean isChiuso() {
+		return chiuso;
+	}
+
+	public void setChiuso(boolean chiuso) {
+		this.chiuso = chiuso;
+	}
+	
+	public void switchChiuso() {
+		this.chiuso = !chiuso;
 	}
 
 }
