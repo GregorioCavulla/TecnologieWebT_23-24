@@ -14,6 +14,7 @@ public class Utente implements Serializable {
 	private String username;
 	private String password;
 	private String table;
+	private String role;
 	private transient HttpSession session;
 
 	/**
@@ -25,6 +26,7 @@ public class Utente implements Serializable {
 		this.username = "";
 		this.password = "";
 		this.table = "";
+		this.role="";
 	}
 
 	/**
@@ -99,5 +101,13 @@ public class Utente implements Serializable {
 
 	public void setTable(String table) {
 		this.table = table;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

@@ -2,7 +2,10 @@ package beans;
 
 public class Drink {
 	private String name;
-	private int cost;
+	private Double cost;
+	private Boolean stato;
+	
+	
 	
 	public String getName() {
 		return name;
@@ -10,11 +13,20 @@ public class Drink {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getCost() {
+	public Double getCost() {
 		return cost;
 	}
-	public void setCost(int cost) {
+	public void setCost(Double cost) {
 		this.cost = cost;
+	}
+	public Boolean getStato() {
+		return stato;
+	}
+	public void setStato(Boolean stato) {
+		this.stato = stato;
+	}
+	public void switchStato() {
+		this.stato=!stato;
 	}
 	
 }

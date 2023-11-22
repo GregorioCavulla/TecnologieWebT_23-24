@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import beans.Drink;
 import beans.ServerData;
-import beans.Utente;
 
 /**
  * Questa classe gestisce le richieste GET inviate tramite AJAX per ottenere la
@@ -39,23 +39,22 @@ public class AjaxGetServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// Ottenere l'istanza di ServerData
 		System.out.println("Sono nella servlet");
-
 		ServerData serverData = ServerData.getServerData();
 
-		// Ottenere la lista degli utenti
-		List<Utente> liveUsers = serverData.getLiveUsers();
+		String numeroTavolo = request.getParameter("tavolo");
+		// Ottenere la lista dei drink
+		List<Drink> orderedDrinks = serverData.getTavolo(numeroTavolo).getDrinks();
+		System.out.println("drinks: ");
 
-		System.out.println("utenti: ");
-
-		for (Utente u : liveUsers) {
-			System.out.println("utente: " + u.getUsername());
+		for (Drink d : orderedDrinks) {
+			System.out.println("drink: " + d.getName());
 		}
-		int len = liveUsers.size();
+		int len = orderedDrinks.size();
 		System.out.println("json lungo " + len);
 
 		// Convertire la lista degli utenti in formato JSON
 		Gson gson = new Gson();
-		String json = gson.toJson(liveUsers);
+		String json = gson.toJson(orderedDrinks);
 		System.out.println("JSON: " + json);
 
 		// Impostare il tipo di contenuto nella risposta come JSON

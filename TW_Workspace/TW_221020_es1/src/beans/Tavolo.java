@@ -7,9 +7,17 @@ public class Tavolo {
 
 	private List<Utente> utenti = new ArrayList<Utente>();
 	private List<Drink> drinks = new ArrayList<Drink>();
-	
+	private Double costoTavolo = 0.0;
 	private String nome = "";
 	
+	public Double getCostoTavolo() {
+		return costoTavolo;
+	}
+
+	public void setCostoTavolo(Double costoTavolo) {
+		this.costoTavolo = costoTavolo;
+	}
+
 	public List<Utente> getUtenti() {
 		return utenti;
 	}
@@ -40,5 +48,6 @@ public class Tavolo {
 	
 	public void addDrink(Drink drink) {
 		this.drinks.add(drink);
+		this.costoTavolo+=drink.getCost();
 	}
 }

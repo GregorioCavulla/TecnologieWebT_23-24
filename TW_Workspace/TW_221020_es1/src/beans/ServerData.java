@@ -87,7 +87,7 @@ public class ServerData implements Serializable {
 	 * @param password La password del nuovo utente.
 	 * @return True se l'utente è creato con successo, false se l'utente esiste già.
 	 */
-	public boolean creaUtente(String username, String password, String table) {
+	public boolean creaUtente(String username, String password, String table, String role) {
 		for (Utente u : this.getUtenti()) {
 			if (u.getUsername().equals(username)) {
 				System.out.println("utente già esistente " + username);
@@ -103,6 +103,13 @@ public class ServerData implements Serializable {
 			}else {
 				System.out.println("spacco tutto porco toro");
 			}
+		}
+		if(utente.getUsername().equals("admin")) {
+			utente.setRole("3");
+		}else if(utente.getUsername().equals("cameriere")) {
+			utente.setRole("2");
+		}else {
+			utente.setRole("1");
 		}
 		System.out.println("ho creato: " + username);
 		System.out.println("check: " + utente.getUsername());

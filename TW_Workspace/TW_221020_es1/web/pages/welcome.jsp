@@ -26,9 +26,33 @@
 	</div>
 	<!-- put here your application html -->
 	<div id="content">
-	
-		<div id="data-info"></div>
-	
+		<%
+		String tavolo = (String) session.getAttribute("tavolo");
+		Utente utenteCheck = (Utente) session.getAttribute("utente");
+		%>
+
+		<%if(utenteCheck.getRole().equals("3")){
+			%>
+			<!-- render degli elementi utili all'admin -->
+			<h1>amministratore</h1>
+			<!-- tabella dei tavoli con i drink ordinati, tasto di chiusura forzata con logica simile a AjaxGetContoServlet -->
+		<%}else if(utenteCheck.getRole().equals("2")){
+			%>
+			<!-- render degli elementi per il cameriere -->
+			<h1>cameriere</h1>
+			<!-- tabella dei tavoli con i drink ordinati, con tasto di switch dello stato per ognuno -->
+		<%} else {%>
+
+		<div id="data-info">
+			<h3>Tavolo</h3>
+			<h3 id="num-tavolo"><%=tavolo%></h3>
+		</div>
+
+		<button class="button" id="btn">Chiedi il conto</button>
+
+		<div id="conto-info"></div>
+
+
 		<script src="../scripts/AjaxGet.js"></script>
 
 		<form class="login-form" action="../ordina" method="post">
@@ -37,6 +61,7 @@
 			<button type="submit" name="action" value="Ordina" class="button">Ordina</button>
 		</form>
 	</div>
+	<%}%>
 
 	<div id="footer">
 		<%@ include file="../fragments/footer.html"%>

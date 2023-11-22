@@ -29,24 +29,21 @@ public class LoginServlet extends HttpServlet {
 	public void init() throws ServletException {
 		super.init();
 
-//		System.out.println("init della servlet, creo utenti: ");
-//
-//		// Popola la lista di utenti durante l'inizializzazione dell'applicazione
-//		ServerData serverData = ServerData.getServerData();
-//
-//		// Crea e aggiungi l'utente "admin"
-//		serverData.creaUtente("admin", "admin");
-//
-//		// Crea e aggiungi l'utente "cecco"
-//		serverData.creaUtente("cecco", "ceccopw");
-//
-//		// Crea e aggiungi l'utente "andre"
-//		serverData.creaUtente("andre", "andrepw");
-//
-//		System.out.println("creati utenti: ");
-//		for (Utente u : serverData.getUtenti()) {
-//			System.out.println("utente: " + u.getUsername());
-//		}
+		System.out.println("init della servlet, creo utenti: ");
+
+		// Popola la lista di utenti durante l'inizializzazione dell'applicazione
+		ServerData serverData = ServerData.getServerData();
+
+		// Crea e aggiungi l'utente "admin"
+		serverData.creaUtente("admin", "admin",null, null);
+
+		// Crea e aggiungi l'utente "cecco"
+		serverData.creaUtente("cameriere", "cameriere",null,null);
+		
+		System.out.println("creati utenti: ");
+		for (Utente u : serverData.getUtenti()) {
+			System.out.println("utente: " + u.getUsername());
+		}
 	}
 
 	/**
@@ -78,7 +75,7 @@ public class LoginServlet extends HttpServlet {
 		// Gestisci la registrazione
 		if ("Registrazione".equals(action)) {
 			// Se l'utente è già registrato, mostra un messaggio di errore
-			if (!serverData.creaUtente(username, password, table)) {
+			if (!serverData.creaUtente(username, password, table, null)) {
 				String error = "utente già registrato";
 				session.setAttribute("error", error);
 				request.getRequestDispatcher("./pages/error.jsp").forward(request, response);
@@ -89,6 +86,7 @@ public class LoginServlet extends HttpServlet {
 				utente.setSession(session);
 				session.setAttribute("utente", utente);
 				session.setAttribute("logged", true);
+				session.setAttribute("tavolo", table);
 				serverData.addLiveSession(session);
 				serverData.addLiveUser(utente);
 				
@@ -115,6 +113,7 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("logged", true);
 				serverData.addLiveSession(session);
 				serverData.addLiveUser(utente);
+				session.setAttribute("tavolo", table);
 				response.sendRedirect("./pages/welcome.jsp");
 			} else if (utente == null) {
 				// Credenziali non valide, utente non registrato, mostra un messaggio di errore
