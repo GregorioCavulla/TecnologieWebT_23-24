@@ -21,7 +21,7 @@ function getDrinks() {
 		}
 		request.send();
 	}
-})
+}
 
 //segue la logica di rendering dell'HTML utilizzando la var HTMLstring che inizia con 
 // <p> per un paragrafo o <ul> nel caso di una lista aggiungendo progressivamente i campi di data che si vogliono mostrare e concludendo con </p>
@@ -38,3 +38,4 @@ function renderHTML(data) {
 		container.insertAdjacentHTML('beforeend', "Utenti terminati");
 		btn.style.display = "none";
 	}
+}
