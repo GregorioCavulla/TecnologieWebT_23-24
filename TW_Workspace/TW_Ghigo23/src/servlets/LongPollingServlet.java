@@ -18,7 +18,21 @@ public class LongPollingServlet extends HttpServlet {
     private static final long serialVersionUID = -7662367006984855119L;
     private static final Queue<AsyncContext> contexts = new ConcurrentLinkedQueue<>();
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Gestisce le richieste GET per la tecnica di long polling. Inizializza un
+     * AsyncContext per ogni richiesta in arrivo e lo aggiunge alla coda dei
+     * contesti.
+     *
+     * @param request  L'oggetto HttpServletRequest che rappresenta la richiesta
+     *                 HTTP in arrivo.
+     * @param response L'oggetto HttpServletResponse che rappresenta la risposta
+     *                 HTTP da restituire al client.
+     * @throws ServletException Se si verifica un errore nella gestione della
+     *                          richiesta.
+     * @throws IOException      Se si verifica un errore di input/output durante la
+     *                          gestione della richiesta.
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         final AsyncContext asyncContext = request.startAsync(request, response);
         asyncContext.setTimeout(10 * 60 * 1000);
@@ -33,6 +47,14 @@ public class LongPollingServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Invia un messaggio al client attraverso l'AsyncContext fornito. Se la
+     * risposta non è stata ancora commessa, scrive il messaggio sulla risposta e
+     * completa l'AsyncContext.
+     *
+     * @param message      Il messaggio da inviare al client.
+     * @param asyncContext L'AsyncContext associato alla richiesta del client.
+     */
     public static void sendMessage(String message, AsyncContext asyncContext) {
         try {
             if (!asyncContext.getResponse().isCommitted()) {

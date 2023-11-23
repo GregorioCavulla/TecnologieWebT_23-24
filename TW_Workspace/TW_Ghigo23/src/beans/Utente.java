@@ -90,4 +90,18 @@ public class Utente implements Serializable {
 	public void setSession(HttpSession session) {
 		this.session = session;
 	}
+
+	/**
+	 * Override del metodo toString per una rappresentazione testuale dell'oggetto Utente.
+	 *
+	 * @return Rappresentazione testuale dell'oggetto Utente.
+	 */
+	@Override
+	public String toString() {
+		return "Utente{" +
+				"username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", session=" + session +
+				'}';
+	}
 }

@@ -13,10 +13,10 @@ public class ServerData implements Serializable {
 
 	private static final long serialVersionUID = 1936094822314768887L;
 
-	private List<Utente> utenti = new ArrayList<Utente>();
-	private List<Utente> liveUsers = new ArrayList<Utente>();
-	private static ServerData s = new ServerData();
-	private List<HttpSession> liveSessions = new ArrayList<HttpSession>();
+	private List<Utente> utenti = new ArrayList<Utente>(); // Lista degli utenti registrati
+	private List<Utente> liveUsers = new ArrayList<Utente>(); // Lista degli utenti attualmente online
+	private static ServerData s = new ServerData(); // Istanza condivisa della classe
+	private List<HttpSession> liveSessions = new ArrayList<HttpSession>(); // Lista delle sessioni utente attive
 
 	/**
 	 * Restituisce un'istanza condivisa di ServerData (singleton).
@@ -49,8 +49,7 @@ public class ServerData implements Serializable {
 	 * Restituisce un utente dato il suo nome utente.
 	 *
 	 * @param username Il nome utente dell'utente da cercare.
-	 * @return L'utente corrispondente al nome utente specificato o null se non
-	 *         trovato.
+	 * @return L'utente corrispondente al nome utente specificato o null se non trovato.
 	 */
 	public Utente getUtente(String username) {
 		for (Utente u : utenti) {
@@ -96,11 +95,9 @@ public class ServerData implements Serializable {
 	}
 
 	/**
-	 * Crea un nuovo utente e lo restituisce senza aggiungerlo alla lista degli
-	 * utenti.
+	 * Crea un nuovo utente e lo restituisce senza aggiungerlo alla lista degli utenti.
 	 *
-	 * @param utente L'oggetto Utente da utilizzare come modello per il nuovo
-	 *               utente.
+	 * @param utente L'oggetto Utente da utilizzare come modello per il nuovo utente.
 	 * @return L'utente creato o null se l'utente esiste già.
 	 */
 	public Utente creaUtente(Utente utente) {
@@ -147,10 +144,21 @@ public class ServerData implements Serializable {
 		this.liveSessions.remove(liveSession);
 	}
 
+	/**
+	 * Restituisce la lista degli utenti attualmente online.
+	 *
+	 * @return La lista degli utenti online.
+	 */
 	public List<Utente> getLiveUsers() {
 		return liveUsers;
 	}
 	
+	/**
+	 * Restituisce un utente online dato il suo nome utente.
+	 *
+	 * @param username Il nome utente dell'utente da cercare.
+	 * @return L'utente online corrispondente al nome utente specificato o null se non trovato.
+	 */
 	public Utente getLiveUser(String username) {
 		for (Utente u : liveUsers) {
 			if (u.getUsername().equals(username)) {
@@ -160,11 +168,21 @@ public class ServerData implements Serializable {
 		return null;
 	}
 
-
+	/**
+	 * Aggiunge un utente alla lista degli utenti online.
+	 *
+	 * @param utente L'utente da aggiungere.
+	 * @return True se l'aggiunta ha successo, false altrimenti.
+	 */
 	public boolean addLiveUser(Utente utente) {
 		return this.liveUsers.add(utente);
 	}
 	
+	/**
+	 * Rimuove un utente dalla lista degli utenti online.
+	 *
+	 * @param utente L'utente da rimuovere.
+	 */
 	public void removeLiveUser(Utente utente) {
 		this.liveUsers.remove(utente);
 	}
