@@ -28,8 +28,7 @@
 	<div id="content">
 		<h1>Parallel Encryption App</h1>
 		<label for="wordInput">Enter a word:</label> <input type="text"
-			id="wordInput" maxlength="20" pattern="[a-z]*%" required>
-		<button onclick="encryptWord()">Encrypt</button>
+			id="wordInput" maxlength="20" oninput="checkSpecialCharacter()" pattern="[a-z]*%" required>
 		<div id="results"></div>
 
 
