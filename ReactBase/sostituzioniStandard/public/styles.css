@@ -1,0 +1,83 @@
+/* Stile generale per il corpo della pagina */
+body {
+  font-family: Arial, sans-serif;
+  margin: 10px; /* Aggiunta del margine */
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Stile per l'intestazione */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px; /* Aggiunta del margine */
+}
+
+/* Stile per la barra di navigazione */
+nav {
+  background-color: #444;
+  padding: 10px;
+  margin-bottom: 10px; /* Aggiunta del margine */
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+
+/* Stile per il contenitore principale */
+main {
+  padding: 20px;
+}
+
+/* Stile per i paragrafi */
+p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Stile per i titoli */
+h1, h2, h3 {
+  color: #333;
+  margin-bottom: 10px; /* Aggiunta del margine */
+}
+
+/* Stile per i link */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Stile per le liste */
+ul, ol {
+  margin-bottom: 15px;
+}
+
+/* Stile per i formulari */
+form {
+  margin-bottom: 20px;
+}
+
+/* Stile per i pulsanti */
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
