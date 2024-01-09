@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ghigo">
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<title>BasicHtmlPage</title>
+	<link type="text/css" href="../styles/default.css" rel="stylesheet">
+	</link>
+</head>
+
+<!-- Insert external js scripts -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<body>
+	<header>
+		<h1>Download dei file</h1>
+	</header>
+
+	<main>
+		<h2>Inserisci URL</h2>
+		<input type="text" name="url" id="url" placeholder="inserisci URL..." required />
+		<button class="btn" id="btn-url">submit</button>
+
+		<input id="number" placeholder="ciao ghigo, non funziono"></input>
+	</main>
+
+	<footer>
+		<p>© 2023 Il Tuo Nome</p>
+	</footer>
+	<script>
+		window.addEventListener("message", function (event) {
+			// Ricevi il messaggio e aggiorna il valore nel div desiderato
+			var count = event.data;
+			console.log(count)
+			document.getElementById("number").value = count;
+		}, false);
+	</script>
+	<script src="../scripts/AjaxPost.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ghigo">
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<title>BasicHtmlPage</title>
+	<link type="text/css" href="../styles/default.css" rel="stylesheet">
+	</link>
+</head>
+
+<!-- Insert external js scripts -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<body>
+	<header>
+		<h1>Titolo dell'Intestazione</h1>
+	</header>
+
+	<main>
+		<h2>inserisci il numero di file</h2>
+		<label for="number">numero di file</label>
+		<input type="number" name="number" id="number" placeholder="inserisci il numero di file..."/>
+		<button class="button" id="btn-send">Invia numero</button>
+		<h2>AJAX</h2>
+		<button class="button" id="btn-recive">Visualizza Calcolo</button>
+		
+		<!-- qui verra visualizzato il calcolo totale delle occorrenze dei caratteri numerici-->
+		<div id="data-info"></div>
+	</main>
+
+	<footer>
+		<p>© 2023 Il Tuo Nome</p>
+	</footer>
+
+	<script src="../scripts/AjaxGet.js"></script>
+	<script src="../scripts/RedirectManyTimes.js"></script>
+
+</body>
+
+</html>
