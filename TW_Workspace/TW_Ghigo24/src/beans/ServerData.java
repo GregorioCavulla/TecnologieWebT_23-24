@@ -12,6 +12,8 @@ public class ServerData implements Serializable {
 
 	private static final long serialVersionUID = 1936094822314768887L;
 
+	private static ServerData s = new ServerData(); // Istanza condivisa della classe
+	
 	private List<Utente> utenti = new ArrayList<>(); // Lista degli utenti registrati
 	private List<Utente> liveUsers = new ArrayList<>(); // Lista degli utenti attualmente online
 	private List<Gruppo> gruppi = new ArrayList<>(); // Lista dei gruppi attivi
@@ -23,7 +25,7 @@ public class ServerData implements Serializable {
 	 * @return L'istanza condivisa di ServerData.
 	 */
 	public synchronized static ServerData getServerData() {
-		return new ServerData();
+		return s;
 	}
 
 	// Metodi per la gestione degli utenti
@@ -34,7 +36,7 @@ public class ServerData implements Serializable {
 	 * @return La lista degli utenti.
 	 */
 	public List<Utente> getUtenti() {
-		return new ArrayList<>(utenti);
+		return utenti;
 	}
 
 	/**
@@ -46,10 +48,10 @@ public class ServerData implements Serializable {
 	public boolean addUtente(Utente utente){
 		if (utenti.contains(utente)) {
 			System.out.println("utenet già presente, non aggiungo");
-			return true;
+			return false;
 		}
 		utenti.add(utente);
-		return false;
+		return true;
 	}
 
 	/**
@@ -149,7 +151,7 @@ public class ServerData implements Serializable {
 	 * @return La lista degli utenti online.
 	 */
 	public List<Utente> getLiveUsers() {
-		return new ArrayList<>(liveUsers);
+		return liveUsers;
 	}
 
 	/**
@@ -171,7 +173,7 @@ public class ServerData implements Serializable {
 	 * @return La lista dei gruppi attivi.
 	 */
 	public List<Gruppo> getGruppi() {
-		return new ArrayList<>(gruppi);
+		return gruppi;
 	}
 
 	/**

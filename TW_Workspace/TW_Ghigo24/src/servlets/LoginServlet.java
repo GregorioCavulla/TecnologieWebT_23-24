@@ -79,9 +79,12 @@ public class LoginServlet extends HttpServlet {
 
 		// Ottieni l'istanza di ServerData
 		ServerData serverData = ServerData.getServerData();
+		
+		System.out.println("utente: "+ username+" ha chiesto di:");
 
 		// Gestisci la registrazione
 		if ("Registrazione".equals(action)) {
+			System.out.println("registrarsi. Al gruppo: " + numeroGruppo);
 			// Se l'utente è già registrato, mostra un messaggio di errore
 			if (!serverData.creaUtente(username, password, numeroGruppo)) {
 				String error = "utente già registrato";
@@ -96,12 +99,14 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("logged", true);
 				serverData.addLiveSession(session);
 				serverData.addLiveUser(utente);
+				System.out.println("benvenuto utente: "+utente.getUsername());
 				response.sendRedirect("./pages/welcome.jsp");
 			}
 		}
 
 		// Gestisci l'accesso
 		if ("Accesso".equals(action)) {
+			System.out.println("accedere.");
 			// Verifica le credenziali
 			Utente utente = serverData.getUtente(username);
 			if (utente != null && utente.getPassword().equals(password)) {
@@ -111,6 +116,7 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("logged", true);
 				serverData.addLiveSession(session);
 				serverData.addLiveUser(utente);
+				System.out.println("bentornato utente: "+utente.getUsername());
 				response.sendRedirect("./pages/welcome.jsp");
 			} else if (utente == null) {
 				// Credenziali non valide, utente non registrato, mostra un messaggio di errore
