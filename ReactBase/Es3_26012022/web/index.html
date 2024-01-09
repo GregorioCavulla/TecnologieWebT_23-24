@@ -1,0 +1,34 @@
+<html>
+	
+	<head>
+		<meta charset="UTF-8" />
+		<title>PescaLago</title>
+		<link rel="StyleSheet" href="styles/style.css" type="text/css" media="all" />
+		<script src="./react-libs/react.js"></script>
+		<script src="./react-libs/react_dom.js"></script>
+		<script src="./react-libs/babel.js"></script>
+		
+		
+		<script src="./scripts/utils.js"></script> 
+	</head>
+	
+	<body>
+		
+		<div id="root"></div>
+		
+		<script src="./scripts/Punteggio.js" type="text/babel"></script>
+		<script src="./scripts/Lago.js" type="text/babel"></script>
+		<script src="./scripts/Configurazione.js" type="text/babel"></script>
+		<script src="./scripts/App.js" type="text/babel"></script>
+		
+		<script type="text/babel">
+    		 	ReactDOM.render(
+  					<React.StrictMode>
+    					<App/>
+  					</React.StrictMode>,
+  					document.getElementById('root')
+			 	);
+			 </script>
+	</body>
+	
+</html>
