@@ -1,0 +1,33 @@
+/* Pista.css */
+.pista {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  
+  .cella {
+    border: 1px solid #000;
+    padding: 8px;
+    margin: 4px;
+    box-sizing: border-box; /* Reset box-sizing per garantire coerenza tra i browser */
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    background-color: #fff; /* Aggiunto sfondo bianco */
+  }
+  
+  .cella:first-child {
+    margin-left: 0;
+  }
+  
+  .cella:last-child {
+    margin-right: 0;
+  }
+  
+  .cella:hover {
+    background-color: #2980b9;
+    color: #fff; /* Aggiunto colore del testo in hover */
+  }
+  
