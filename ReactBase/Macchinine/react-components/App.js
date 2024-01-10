@@ -8,6 +8,7 @@ class App extends React.Component {
       posizioni: [],
       colori: [],
       velocita: [],
+      classifica: [],
       finita: false,
       iniziata: false,
       turno: 0,
@@ -28,26 +29,18 @@ class App extends React.Component {
   }
 
   reset() {
-    console.log(
-      "classifica:" +
-        this.state.classifica +
-        "velocita: " +
-        this.state.velocita +
-        "durata: " +
-        this.state.durata +
-        "finita: " +
-        this.state.finita
-    ),
-      this.setState({
-        numeroMacchine: 0,
-        posizioni: [],
-        colori: [],
-        velocita: [],
-        finita: false,
-        iniziata: false,
-        turno: 0,
-        idTimer: 0,
-      });
+    this.setState({
+      numeroMacchine: 0,
+      posizioni: [],
+      colori: [],
+      velocita: [],
+      finita: false,
+      iniziata: false,
+      turno: 0,
+      idTimer: 0,
+      parimerito: false,
+      macchineParimerito: [],
+    });
   }
 
   configura() {
@@ -63,18 +56,18 @@ class App extends React.Component {
 
   avvia() {
     let idTimer = this.state.idTimer;
-    idTimer = setInterval(() => this.gara(), 4000);
+    idTimer = setInterval(() => this.gara(), 500);
     this.setState({ idTimer: idTimer });
   }
 
   gara() {
     let turno = this.state.turno;
     turno++;
-    console.log("turno: " + turno);
+
     let numeroMacchine = this.state.numeroMacchine;
-    console.log("numeroMacchine: " + numeroMacchine);
+
     let posizioni = this.state.posizioni;
-    console.log("posizioni: " + posizioni);
+
     let idTimer = this.state.idTimer;
     let posizioniNuove = [];
 
@@ -87,27 +80,30 @@ class App extends React.Component {
       }
       posizioniNuove[i] = posizione;
     }
-    console.log("posizioniNuove: " + posizioniNuove);
     this.setState({ posizioni: posizioniNuove, turno: turno });
     this.classifica();
     this.setState({ iniziata: true });
   }
 
   classifica() {
+    this.setState({ parimerito: false });
     let posizioni = this.state.posizioni;
-    console.log("posizioni: " + posizioni);
     let classifica = this.state.classifica;
-    console.log("classifica: " + classifica);
+    let macchineParimerito = this.state.macchineParimerito;
+
+    let ordinate = [];
     ordinate = posizioni.sort();
     for (let i = 0; i < posizioni.length; i++) {
-      for (let j = 0; j < posizioni.length; j++) {
-        if (posizioni[i] == ordinate[j]) {
-          classifica[i] = i;
-        }
+      classifica[i] = posizioni.indexOf(ordinate[i]);
+      if (i > 0 && ordinate[i] == ordinate[i - 1]) {
+        this.setState({ parimerito: true });
+        macchineParimerito[i] = posizioni.indexOf(ordinate[i]);
       }
     }
-    console.log("classifica: " + classifica);
-    this.setState({ classifica: classifica });
+    this.setState({
+      classifica: classifica,
+      macchineParimerito: macchineParimerito,
+    });
   }
 
   terminaGara() {
@@ -142,10 +138,13 @@ class App extends React.Component {
         {this.state.iniziata && (
           <Statistiche
             onClick={this.onClick}
+            numeroMacchine={this.state.numeroMacchine}
             classifica={this.state.classifica}
             velocita={this.state.velocita}
             durata={this.state.durata}
             finita={this.state.finita}
+            parimerito={this.state.parimerito}
+            macchineParimerito={this.state.macchineParimerito}
           />
         )}
       </div>

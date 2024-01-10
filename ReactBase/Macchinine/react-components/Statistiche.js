@@ -6,31 +6,66 @@ class Statistiche extends React.Component {
     let velocita = this.props.velocita;
     let durata = this.props.durata;
     let finita = this.props.finita;
+    let parimerito = this.props.parimerito;
+    let macchineParimerito = this.props.macchineParimerito;
+    let n = this.props.numeroMacchine;
+    let classString = [];
+    let velocitaString = [];
+    for (let i = 0; i < n; i++) {
+      console.log("faccio push di " + classifica[i]);
+      classString.push(
+        <Text prop={"Macchina " + (i + 1) + ": " + classifica[i]} />
+      );
+    }
+    console.log(classString);
 
+    for (let i = 0; i < n; i++) {
+      console.log("faccio push di " + velocita[i]);
+      velocitaString.push(
+        <p>
+          Macchina {i + 1}: {velocita[i]}
+        </p>
+      );
+    }
+    console.log(velocitaString);
+    if (parimerito) {
+      return (
+        <div className="pista">
+          <h2>Classifica</h2>
+          {classString}
+          <p>Parimerito tra le macchine {macchineParimerito[0]}</p>
+          <p>Parimerito tra le macchine {macchineParimerito[1]}</p>
+          {finita && (
+            <div>
+              <h2>Gara finita! ha vinto la macchina {classifica[0]}</h2>
+              <h2>La gara è durata {durata} secondi</h2>
+              <h2>Velocità:</h2>
+              {velocitaString}
+              <br />
+              <button id="reset" onClick={this.props.onClick}>
+                Reset
+              </button>
+            </div>
+          )}
+        </div>
+      );
+    }
     return (
       <div className="pista">
         <h2>Classifica</h2>
-        <p>1°: {classifica[0]}</p>
-        <p>2°: {classifica[1]}</p>
-        <p>3°: {classifica[2]}</p>
-        <p>4°: {classifica[3]}</p>
+        {classString}
         {finita && (
           <div>
-            <h2>Gara finita! ha vinto {classifica[0]}</h2>
+            <h2>Gara finita! ha vinto Macchina {classifica[0]}</h2>
             <h2>La gara è {durata} secondi</h2>
             <h2>Velocità:</h2>
-            <p>Macchina 1: {velocita[0]}</p>
-            <p>Macchina 2: {velocita[1]}</p>
-            <p>Macchina 3: {velocita[2]}</p>
-            <p>Macchina 4: {velocita[3]}</p>
+            {velocitaString}
             <br />
             <button id="reset" onClick={this.props.onClick}>
               Reset
             </button>
           </div>
         )}
-        <br />
-        {righe}
       </div>
     );
   }
