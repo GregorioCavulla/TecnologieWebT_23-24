@@ -12,22 +12,32 @@ class Statistiche extends React.Component {
     let classString = [];
     let velocitaString = [];
     for (let i = 0; i < n; i++) {
-      console.log("faccio push di " + classifica[i]);
       classString.push(
-        <Text prop={"Macchina " + (i + 1) + ": " + classifica[i]} />
+        <Text
+          prop={
+            eval(i.toString() + "+1") +
+            "°:" +
+            " Macchina " +
+            eval(classifica[i].toString() + "+1")
+          }
+        />
       );
     }
-    console.log(classString);
-
-    for (let i = 0; i < n; i++) {
-      console.log("faccio push di " + velocita[i]);
-      velocitaString.push(
-        <p>
-          Macchina {i + 1}: {velocita[i]}
-        </p>
-      );
+    if (finita) {
+      for (let i = 0; i < n; i++) {
+        velocitaString.push(
+          <Text
+            prop={
+              "Macchina " +
+              eval(i.toString() + "+1") +
+              ": " +
+              eval(velocita[i].toString + "+1") +
+              "celle/s"
+            }
+          />
+        );
+      }
     }
-    console.log(velocitaString);
     if (parimerito) {
       return (
         <div className="pista">
