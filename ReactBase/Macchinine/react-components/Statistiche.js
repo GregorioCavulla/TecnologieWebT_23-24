@@ -23,7 +23,7 @@ class Statistiche extends React.Component {
         />
       );
     }
-    if (finita) {
+    /*     if (finita) {
       for (let i = 0; i < n; i++) {
         velocitaString.push(
           <Text
@@ -37,7 +37,7 @@ class Statistiche extends React.Component {
           />
         );
       }
-    }
+    } */
     if (parimerito) {
       return (
         <div className="pista">
@@ -49,9 +49,9 @@ class Statistiche extends React.Component {
             <div>
               <h2>Gara finita! ha vinto la macchina {classifica[0]}</h2>
               <h2>La gara è durata {durata} secondi</h2>
-              <h2>Velocità:</h2>
+              {/*               <h2>Velocità:</h2>
               {velocitaString}
-              <br />
+              <br /> */}
               <button id="reset" onClick={this.props.onClick}>
                 Reset
               </button>
@@ -68,8 +68,8 @@ class Statistiche extends React.Component {
           <div>
             <h2>Gara finita! ha vinto Macchina {classifica[0]}</h2>
             <h2>La gara è {durata} secondi</h2>
-            <h2>Velocità:</h2>
-            {velocitaString}
+            {/*             <h2>Velocità:</h2>
+            {velocitaString} */}
             <br />
             <button id="reset" onClick={this.props.onClick}>
               Reset
