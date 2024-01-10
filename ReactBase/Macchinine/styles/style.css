@@ -21,7 +21,7 @@ body{
 }
 
 .button{
-  display:flex;
+  display:block;
   background-color:#bbb
 }
 

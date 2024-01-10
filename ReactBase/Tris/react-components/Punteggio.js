@@ -1,11 +1,23 @@
 "use strict";
 
-class Componente extends React.Component {
+class Punteggio extends React.Component {
   render() {
-    let prop = this.props.prop;
     return (
       <div className="...">
-        <p>{prop}</p>
+        <p>
+          {this.props.vincitore != "" && this.props.vincitore != "Pareggio"
+            ? "ha vinto " + this.props.vincitore + "!"
+            : ""}
+        </p>
+        <p>
+          {this.props.vincitore == "" && this.props.pareggio == true
+            ? "Pareggio!"
+            : ""}
+        </p>
+        <p>
+          Punteggio X: {this.props.punteggioX} - Punteggio O:{" "}
+          {this.props.punteggioO}
+        </p>
       </div>
     );
   }

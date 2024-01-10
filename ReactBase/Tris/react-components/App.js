@@ -6,6 +6,9 @@ class App extends React.Component {
     this.state = {
       griglia: Array(9).fill(""),
       turno: "X",
+      vittoria: "",
+      punteggioX: 0,
+      punteggioO: 0,
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -13,10 +16,14 @@ class App extends React.Component {
   onClick(e) {
     let griglia = this.state.griglia;
     let turno = this.state.turno;
-    griglia[e.target.id] = turno;
-    this.setState({ griglia: griglia });
-    this.checkVittoria();
-    this.switcTurno();
+    if (griglia[e.target.id] != "") {
+      return;
+    } else {
+      griglia[e.target.id] = turno;
+      this.setState({ griglia: griglia });
+      this.checkVittoria();
+      this.switcTurno();
+    }
   }
 
   switcTurno() {
@@ -31,7 +38,6 @@ class App extends React.Component {
   checkVittoria() {
     let griglia = this.state.griglia;
     let turno = this.state.turno;
-    let vittoria;
     if (
       (griglia[0] === turno && griglia[1] === turno && griglia[2] === turno) ||
       (griglia[3] === turno && griglia[4] === turno && griglia[5] === turno) ||
@@ -42,21 +48,42 @@ class App extends React.Component {
       (griglia[0] === turno && griglia[4] === turno && griglia[8] === turno) ||
       (griglia[2] === turno && griglia[4] === turno && griglia[6] === turno)
     ) {
-      vittoria = turno;
+      console.log(turno + " ha vinto");
+      if (turno === "X") {
+        this.setState({ punteggioX: this.state.punteggioX + 1 });
+      } else {
+        this.setState({ punteggioO: this.state.punteggioO + 1 });
+      }
+      this.setState({ vittoria: turno });
+      this.reset();
+    } else if (!griglia.includes("")) {
+      this.setState({ vittoria: "Pareggio" });
+      this.reset();
     }
-    return vittoria;
   }
 
   reset() {
-    this.setState({ griglia: Array(9).fill("") });
+    this.setState({ griglia: Array(9).fill(""), turno: "X" });
+  }
+
+  resetPunteggio() {
+    this.reset();
+    this.setState({ punteggioX: 0, punteggioO: 0 });
   }
 
   render() {
     return (
       <div className="application-body">
         <h1>Tick Tack Toe</h1>
-        <Punteggio vittoria={this.checkVittoria()} onClick={this.onClick} />
+        <Punteggio
+          vincitore={this.state.vittoria}
+          punteggioO={this.state.punteggioO}
+          punteggioX={this.state.punteggioX}
+          onClick={this.onClick}
+        />
         <Griglia onClick={this.onClick} griglia={this.state.griglia} />
+        <br />
+        <button onClick={() => this.resetPunteggio()}>ResetAll</button>
       </div>
     );
   }
