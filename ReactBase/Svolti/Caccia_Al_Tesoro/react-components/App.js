@@ -61,7 +61,7 @@ class App extends React.Component {
       e.target.innerHTML = this.calcolaFreccia(id);
     }
   }
-
+  //↖ ↑ ↗ ← · → ↙ ↓ ↘
   calcolaFreccia(idCella) {
     let tesoroX = this.state.tesoroX;
     let tesoroY = this.state.tesoroY;
@@ -77,6 +77,18 @@ class App extends React.Component {
       freccia += "↓";
     } else if (tesoroY < y) {
       freccia += "↑";
+    }
+    if (freccia === "→↓" || freccia === "↓→") {
+      freccia = "↘";
+    }
+    if (freccia === "→↑" || freccia === "↑→") {
+      freccia = "↗";
+    }
+    if (freccia === "←↓" || freccia === "↓←") {
+      freccia = "↙";
+    }
+    if (freccia === "←↑" || freccia === "↑←") {
+      freccia = "↖";
     }
     return freccia;
   }
