@@ -11,6 +11,7 @@ class App extends React.Component {
       punteggio: 0,
       count: 0,
       finita: false,
+      iniziata: false,
     };
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -25,10 +26,12 @@ class App extends React.Component {
       punteggio: 0,
       count: 0,
       finita: false,
+      iniziata: false,
     });
   }
 
   onClick(e) {
+    this.setState({ iniziata: true });
     let id = e.target.id;
     if (id === "reset") {
       this.reset();
@@ -97,7 +100,7 @@ class App extends React.Component {
     return (
       <div className="application-body">
         <h1>App</h1>
-        <Configurazione onChange={this.onChange} />
+        {!this.state.iniziata && <Configurazione onChange={this.onChange} />}
         <br />
         <Mappa
           x={this.state.x}
