@@ -53,7 +53,7 @@ class App extends React.Component {
       } else {
         punteggio = 2;
       }
-      e.targhet.innerHTML = value;
+      e.target.innerHTML = value;
       this.setState({ punteggio: punteggio });
     } else {
       console.log("non trovato");
