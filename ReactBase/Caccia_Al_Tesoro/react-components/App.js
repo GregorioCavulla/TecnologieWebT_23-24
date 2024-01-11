@@ -50,15 +50,33 @@ class App extends React.Component {
       } else {
         punteggio = 2;
       }
+      e.targhet.innerHTML = value;
       this.setState({ punteggio: punteggio });
     } else {
       console.log("non trovato");
       e.target.style.backgroundColor = "yellow";
+      e.target.innerHTML = this.calcolaFreccia(id);
     }
-    e.target.innerHTML = value;
   }
 
-  calcolaFreccia(idCella) {}
+  calcolaFreccia(idCella) {
+    let tesoroX = this.state.tesoroX;
+    let tesoroY = this.state.tesoroY;
+    let x = idCella % 100;
+    let y = Math.floor(idCella / 100);
+    let freccia = "";
+    if (tesoroX > x) {
+      freccia += "→";
+    } else if (tesoroX < x) {
+      freccia += "←";
+    }
+    if (tesoroY > y) {
+      freccia += "↓";
+    } else if (tesoroY < y) {
+      freccia += "↑";
+    }
+    return freccia;
+  }
 
   onChange(e) {
     let id = e.target.id;
