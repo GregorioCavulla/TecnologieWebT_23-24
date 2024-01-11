@@ -2,11 +2,6 @@
 
 class Mappa extends React.Component {
   render() {
-    let y = this.props.y;
-    let x = this.props.x;
-    let tesoroX = this.props.tesoroX;
-    let tesoroY = this.props.tesoroY;
-
     let righe = [];
 
     for (let i = 0; i < y; i++) {
