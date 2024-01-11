@@ -65,10 +65,9 @@ class App extends React.Component {
     turno++;
 
     let numeroMacchine = this.state.numeroMacchine;
-
     let posizioni = this.state.posizioni;
-
     let idTimer = this.state.idTimer;
+
     let posizioniNuove = [];
 
     for (let i = 0; i < numeroMacchine; i++) {

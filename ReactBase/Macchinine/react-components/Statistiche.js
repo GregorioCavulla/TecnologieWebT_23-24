@@ -18,7 +18,7 @@ class Statistiche extends React.Component {
             eval(i.toString() + "+1") +
             "°:" +
             " Macchina " +
-            eval(classifica[i].toString() + "+1")
+            eval(classifica[i].toString() + "+1") //i+1°: macchina i+1
           }
         />
       );
@@ -47,7 +47,10 @@ class Statistiche extends React.Component {
           <p>Parimerito tra le macchine {macchineParimerito[1]}</p>
           {finita && (
             <div>
-              <h2>Gara finita! ha vinto la macchina {classifica[0]}</h2>
+              <h2>
+                Gara finita! ha vinto la macchina{" "}
+                {eval(classifica[0].toString() + "+1")}
+              </h2>
               <h2>La gara è durata {durata} secondi</h2>
               {/*               <h2>Velocità:</h2>
               {velocitaString}
@@ -66,7 +69,10 @@ class Statistiche extends React.Component {
         {classString}
         {finita && (
           <div>
-            <h2>Gara finita! ha vinto Macchina {classifica[0]}</h2>
+            <h2>
+              Gara finita! ha vinto Macchina{" "}
+              {eval(classifica[0].toString() + "+1")}
+            </h2>
             <h2>La gara è {durata} secondi</h2>
             {/*             <h2>Velocità:</h2>
             {velocitaString} */}
