@@ -83,17 +83,13 @@ class App extends React.Component {
     if (id === "x") {
       this.setState({ x: e.target.value });
       let tesoroX = this.state.tesoroX;
-      if (tesoroX == -1) {
-        tesoroX = Math.floor(Math.random() * e.target.value);
-        this.setState({ tesoroX: tesoroX });
-      }
+      tesoroX = Math.floor(Math.random() * e.target.value);
+      this.setState({ tesoroX: tesoroX });
     } else if (id === "y") {
       this.setState({ y: e.target.value });
       let tesoroY = this.state.tesoroY;
-      if (tesoroY == -1) {
-        tesoroY = Math.floor(Math.random() * e.target.value);
-        this.setState({ tesoroY: tesoroY });
-      }
+      tesoroY = Math.floor(Math.random() * e.target.value);
+      this.setState({ tesoroY: tesoroY });
     }
   }
 
