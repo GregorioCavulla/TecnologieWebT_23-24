@@ -5,7 +5,7 @@
 <%@page import="java.util.*"%>
 <%@page import="beans.ServerData"%>
 <%@page import="beans.Articolo"%>
-<%@page import="beans.Utente"%>
+<%@page import="beans.Tennista"%>
 
 
 <!DOCTYPE html>

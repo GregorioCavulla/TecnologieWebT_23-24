@@ -1,0 +1,62 @@
+/* Stile moderno con bordi arrotondati e colori tranquilli */
+
+/* Stili per il componente con classe "configDiv" */
+.configDiv {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Stili per il componente con classe "numberInput" */
+.numberInput {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Stili per il componente con classe "textInput" */
+.textInput {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Stili per il componente con classe "cella" */
+.cella {
+  background-color: #e6f7ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Stili per il componente con classe "punteggioDiv" */
+.punteggioDiv {
+  background-color: #d9f3e3;
+  border: 1px solid #a3e0c4;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Stili per il componente con classe "btn" */
+.btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Stili per il componente con classe "outputText" */
+.outputText {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

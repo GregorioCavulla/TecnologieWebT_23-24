@@ -1,4 +1,4 @@
-<%@page import="beans.Utente"%>
+<%@page import="beans.Tennista"%>
 <%@page import="java.net.*"%>
 <%@ page import="java.io.*"%>
 <%@ page import="java.util.regex.*"%>

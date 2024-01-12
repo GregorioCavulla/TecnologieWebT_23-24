@@ -1,4 +1,4 @@
-<%@page import="beans.Utente"%>
+<%@page import="beans.Tennista"%>
 <%@page import="beans.ServerData"%>
 <%@page import="beans.Tavolo"%>
 <%@page import="beans.Drink"%>
@@ -34,10 +34,9 @@
 	<div id="content">
 		<%
 		String tavolo = (String) session.getAttribute("tavolo");
-		ServerData serverData = ServerData.getServerData();
-		List<Tavolo> tavoli = serverData.getTavoli();
-		Utente utenteCheck = (Utente) session.getAttribute("utente");
-		
+				ServerData serverData = ServerData.getServerData();
+				List<Tavolo> tavoli = serverData.getTavoli();
+				Tennista utenteCheck = (Tennista) session.getAttribute("utente");
 		%>
 
 		<%

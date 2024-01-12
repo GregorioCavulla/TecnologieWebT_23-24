@@ -2,7 +2,7 @@
 
 <%@page session="true"%>
 
-<%@page import="beans.Utente"%>
+<%@page import="beans.Tennista"%>
 <%@page import="beans.Gruppo"%>
 <%@page import="beans.ServerData"%>
 
