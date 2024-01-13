@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+    version="4.0">
+
+    <!-- Nome visualizzato dell'applicazione -->
+    <display-name>TW_Ghigo</display-name>
+
+    <!-- Descrizione breve dell'applicazione -->
+    <description>
+        empty template to use as a starting point for your application
+        <!-- Questa descrizione è un breve testo informativo sull'applicazione. -->
+    </description>
+
+    <!-- Definizione dei parametri del contesto dell'applicazione -->
+    <context-param>
+        <!-- Nome del parametro del contesto -->
+        <param-name>dao</param-name>
+        <!-- Valore del parametro del contesto (identificativo dell'implementazione) -->
+        <param-value>IDENTIFICATIVO_DELL_IMPLEMENTAZIONE</param-value>
+        <!-- Qui puoi definire i parametri globali dell'applicazione. -->
+    </context-param>
+
+    <!-- Definizione dei servlet e dei relativi mapping URL -->
+
+    <!-- Specifica i file di benvenuto predefiniti -->
+    <welcome-file-list>
+        <!-- Elenco dei file di benvenuto predefiniti -->
+        <welcome-file>index.jsp</welcome-file>
+        <!-- Qui specifichiamo l'elenco dei file di benvenuto predefiniti, e in 
+            questo caso, c'è solo index.jsp. -->
+    </welcome-file-list>
+    
+    <!-- Definizione delle pagine di errore personalizzate -->
+    <error-page>
+        <!-- Specifica il codice di errore HTTP (404 - pagina non trovata) -->
+        <error-code>404</error-code>
+        <!-- Pagina da visualizzare quando si verifica un errore 404 -->
+        <location>/errors/notfound.html</location>
+        <!-- Qui specifichiamo una pagina di errore personalizzata da visualizzare 
+            quando si verifica un errore HTTP 404 (pagina non trovata). La pagina è situata 
+            in /errors/notfound.html. -->
+    </error-page>
+
+    <error-page>
+        <!-- Specifica il tipo di eccezione Java (javax.servlet.ServletException) -->
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <!-- Pagina da visualizzare quando si verifica un'eccezione di tipo ServletException -->
+        <location>/errors/failure.jsp</location>
+        <!-- Similmente, definiamo una pagina di errore personalizzata per le eccezioni 
+            di tipo ServletException. -->
+    </error-page>
+</web-app>

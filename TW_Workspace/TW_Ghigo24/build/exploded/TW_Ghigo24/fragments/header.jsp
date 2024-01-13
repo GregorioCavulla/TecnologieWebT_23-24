@@ -1,4 +1,4 @@
-<%@page import="beans.Tennista"%>
+<%@page import="beans.Utente"%>
 <%@page import="java.net.*"%>
 <%@ page import="java.io.*"%>
 <%@ page import="java.util.regex.*"%>
@@ -31,7 +31,7 @@
 <body onload="">
 	<%
 	// Questo perché nella ServletAuth:71 o :85 session.setAttribute("utente", u);
-		Tennista utente = (Tennista) session.getAttribute("utente");
+		Utente utente = (Utente) session.getAttribute("utente");
 	%>
 	<div id="welcome-message">
 		<h1 style="color: #fff;">

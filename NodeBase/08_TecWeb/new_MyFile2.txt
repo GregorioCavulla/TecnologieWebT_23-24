@@ -1,0 +1,14 @@
+Questo è un'altro file
+di testo @ solo creato
+appositamente
+per
+giocare con node.js 
+e
+i suoi moduli
+Questo è un'altro file
+di  @ solo creato
+appositamente
+per
+giocare con node.js 
+e
+i suoi moduli

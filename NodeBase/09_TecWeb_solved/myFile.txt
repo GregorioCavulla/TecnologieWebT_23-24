@@ -1,5 +1,0 @@
- questa è  una prova
-di lettura di
-un file
-con node
-questaèunafraseacasocompostadaunasolaparola

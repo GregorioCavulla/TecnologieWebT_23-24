@@ -10,21 +10,19 @@ class Punteggio extends React.Component {
       <div className="punteggioDiv">
         <h2>Punteggio</h2>
         <p>Punteggio lancio: {punteggioLancio}</p>
-        {finita && (
-          <div className="punteggioDiv">
-            <p>Punteggio medio: {punteggioMedio}</p>
-            <p>Punteggio totale: {punteggio}</p>
-            <br />
-            <button
-              className="btn"
-              id="reset"
-              value="reset"
-              onClick={this.props.onClick}
-            >
-              Reset
-            </button>
-          </div>
-        )}
+        <div className="punteggioDiv">
+          <p>Punteggio medio: {punteggioMedio}</p>
+          <p>Punteggio totale: {punteggio}</p>
+          <br />
+          <button
+            className="btn"
+            id="reset"
+            value="reset"
+            onClick={this.props.onClick}
+          >
+            Reset
+          </button>
+        </div>
       </div>
     );
   }

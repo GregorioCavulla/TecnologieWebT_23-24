@@ -1,7 +1,0 @@
-Questo è un'altro file
-di testo @ solo creato
-appositamente
-per
-giocare con node.js 
-e
-i suoi moduli
