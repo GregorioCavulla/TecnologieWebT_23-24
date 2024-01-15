@@ -76,6 +76,21 @@ public class FileUtility {
 
         return conteggio;
     }
+    
+    public void rimuoviOccorrenze(char lettera) {
+    	char lM = Character.toUpperCase(lettera);
+    	char lm = Character.toLowerCase(lettera);
+        contenutoFile = contenutoFile.replace(String.valueOf(lM), "");
+        contenutoFile = contenutoFile.replace(String.valueOf(lm), "");
+    }
+    
+    public void rimuoviOccorrenze(String stringa) {
+    	String sM = stringa.toUpperCase();
+    	String sm = stringa.toLowerCase();
+        contenutoFile = contenutoFile.replace(stringa, "");
+        contenutoFile = contenutoFile.replace(sM, "");
+        contenutoFile = contenutoFile.replace(sm, "");
+    }
 
     /**
      * Sostituisce le minuscole con le maiuscole e viceversa in contenutoFile.
