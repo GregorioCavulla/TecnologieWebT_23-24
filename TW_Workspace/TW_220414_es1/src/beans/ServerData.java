@@ -3,6 +3,7 @@ package beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 /**
@@ -18,9 +19,10 @@ public class ServerData implements Serializable {
 	private List<Utente> liveUsers = new ArrayList<>(); // Lista degli utenti attualmente online
 	private List<Gruppo> gruppi = new ArrayList<>(); // Lista dei gruppi attivi
 	private List<HttpSession> liveSessions = new ArrayList<>(); // Lista delle sessioni utente attive
+	private List<Richiesta> richieste = new ArrayList<Richiesta>();
 
 	private int contaAmministratore = 0;
-	private int contaRichieste = 0;
+
 	public int getContaAmministratore() {
 		return contaAmministratore;
 	}
@@ -32,28 +34,27 @@ public class ServerData implements Serializable {
 	public void addContaAmministratore() {
 		this.contaAmministratore += 1;
 	}
-	
-	public int getContaRichieste() {
-		return contaRichieste;
+
+	public List<Richiesta> getRichieste() {
+		return richieste;
 	}
 
-	public void setContaRichieste(int contaRichieste) {
-		this.contaRichieste = contaRichieste;
+	public void setRichieste(List<Richiesta> richieste) {
+		this.richieste = richieste;
 	}
-	
-	public void addContaRichieste() throws InterruptedException{
-		this.contaRichieste+=1;
-		try {
-		wait(3600);
-		} catch (Exception e) {
-			// TODO: handle exception
-			throw new InterruptedException();
+
+	public void addContaRichieste() {
+		Richiesta r = new Richiesta();
+		this.richieste.add(r);
+		for (Richiesta r1 : this.richieste) {
+			if (r1.isOld()) {
+				rimuoviRichiesta(r1);
+			}
 		}
-		rimuoviContaRichieste();
 	}
-	
-	public void rimuoviContaRichieste() {
-		this.contaRichieste-=1;
+
+	public void rimuoviRichiesta(Richiesta r) {
+		this.richieste.remove(r);
 	}
 
 	/**

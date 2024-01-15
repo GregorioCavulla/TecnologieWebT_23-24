@@ -25,7 +25,7 @@
 	<%
 	ServerData serverData = ServerData.getServerData();
 	int contaAmministratore = serverData.getContaAmministratore();
-	int contaRichieste = serverData.getContaRichieste();
+	int contaRichieste = serverData.getRichieste().size();
 	%>
 
 	<main>
