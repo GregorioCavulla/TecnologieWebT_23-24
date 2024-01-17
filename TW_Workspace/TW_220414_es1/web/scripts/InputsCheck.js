@@ -32,7 +32,7 @@ function checkAlfa(element) {
 	if (element.id == "nomeFile") {
 		console.log("oh, è nome file: "+inputValue);
 		checkSequenza(" ", element);
-		inputValue = inputValue.slice(0, -1);
+		inputValue = inputValue.slice(0, -1);s
 		console.log(inputValue);
 	}
 

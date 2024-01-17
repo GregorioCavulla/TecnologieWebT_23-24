@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>React Application</title>
+		<link rel="StyleSheet" href="styles/style.css" type="text/css" media="all" />
+		<script src="./libs/react.production.min.js"></script>
+		<script src="./libs/react-dom.production.min.js"></script>
+		<script src="./libs/babel.min.js"> </script>               
+	</head>
+
+	<body>
+		<!-- Placeholder -->
+		<div id="root"></div>
+		
+		<!-- React components -->
+		<script src="./react-components/App.js" type="text/babel"></script>
+		<script src="./react-components/Configurazione.js" type="text/babel"></script>
+		<script src="./react-components/Gioco.js" type="text/babel"></script>
+		<script src="./react-components/Tavolo.js" type="text/babel"></script>
+		<script src="./react-components/Carta.js" type="text/babel"></script>
+		<script src="./react-components/Credito.js" type="text/babel"></script>
+		<!--  <script src="index.js" type="text/babel"></script>-->
+		
+		<script type="text/babel">
+		ReactDOM.render(
+			<React.StrictMode>
+				<App/>
+			</React.StrictMode>,
+			document.getElementById('root')
+		);
+		</script>
+	</body>
+</html>

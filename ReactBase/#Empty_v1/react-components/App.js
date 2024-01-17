@@ -1,7 +1,5 @@
 "use strict";
 
-const { Component } = require("react");
-
 class App extends React.Component {
   constructor() {
     super();
@@ -9,9 +7,15 @@ class App extends React.Component {
       state: "",
     };
     this.onClick = this.onClick.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   onClick(e) {}
+
+  onChange(e) {
+    let id = e.target.id;
+    let value = e.target.value;
+  }
 
   render() {
     return (

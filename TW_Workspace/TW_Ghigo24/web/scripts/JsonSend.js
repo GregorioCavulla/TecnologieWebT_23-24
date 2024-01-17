@@ -31,6 +31,8 @@ function splitSend(splitIndex) {
 	if (inputValue.length > splitIndex) {
 		//maggiore di splitIndex due send diverse
 		console.log("piu di 500")
+		
+		
 		ajaxSend(inputValue.slice(0, splitIndex));
 		ajaxSend(inputValue.slice(splitIndex));
 		flagSplit = 1;
@@ -55,11 +57,10 @@ function ajaxSend(string) {
 	xhr.onload = function() {//callback
 		if (xhr.status === 200) {
 			if (flagSplit === 1) {
-				if (flag === 0) {
+				if (flag<10) {
 					var response = xhr.responseTex;
 					console.log(response);
-					accumulatedResponse = accumulatedResponse + '' + response + '';
-					console.log("acc: " + accumulatedResponse);
+
 					flag += 1;
 				} else {
 					var fine = cronometro();
